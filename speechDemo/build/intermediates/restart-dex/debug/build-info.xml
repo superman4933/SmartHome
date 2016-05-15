@@ -4,26 +4,26 @@
     api-level="19"
     density="xhdpi"
     format="7"
-    timestamp="4333483165165" >
+    timestamp="10825932872630" >
 
     <task
         name="javac"
-        duration="237" />
+        duration="179" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="13" />
+        duration="30" />
     <task
         name="verifier"
-        duration="2" />
+        duration="5" />
 
     <artifact
         location="D:\AndroidProject\SmartHomeSystem\speechDemo\build\outputs\apk\speechDemo-debug.apk"
         type="MAIN" />
 
-    <build timestamp="4333483165165" >
+    <build timestamp="10825932872630" >
         <artifact
             location="D:\AndroidProject\SmartHomeSystem\speechDemo\build\outputs\apk\speechDemo-debug.apk"
             type="MAIN" />

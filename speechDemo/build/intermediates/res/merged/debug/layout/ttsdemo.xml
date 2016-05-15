@@ -21,7 +21,7 @@
             android:text="讯飞合成示例"
             android:textSize="30sp" />
 
-        <ImageButton
+        ImageButton
             android:id="@+id/image_tts_set"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -53,7 +53,7 @@
             android:layout_weight="2"
             android:orientation="horizontal" >
 
-            <RadioButton
+            RadioButton
                 android:id="@+id/tts_radioCloud"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 android:checked="true"
                 android:text="在线合成" />
 
-            <RadioButton
+            RadioButton
                 android:id="@+id/tts_radioLocal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 android:text="本地合成" />
         </RadioGroup>
 
-        <Button
+        Button
             android:id="@+id/tts_btn_person_select"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
-        <Button
+        Button
             android:id="@+id/tts_play"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             android:text="开始合成"
             android:textSize="20sp" />
 
-        <Button
+        Button
             android:id="@+id/tts_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
-        <Button
+        Button
             android:id="@+id/tts_pause"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
             android:text="暂停播放"
             android:textSize="20sp" />
 
-        <Button
+        Button
             android:id="@+id/tts_resume"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

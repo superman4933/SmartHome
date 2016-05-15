@@ -295,10 +295,13 @@ public class AsrDemo extends Activity implements OnClickListener {
                 Log.d(TAG, "recognizer result：" + result.getResultString());
                 String text;
                 if ("cloud".equalsIgnoreCase(mEngineType)) {
+//                    如果是网络语音识别则调用下面的解析方法
                     text = JsonParser.parseGrammarResult(result.getResultString());
 
                 } else {
+//                    本地识别的解析方法
                     text = JsonParser.parseLocalGrammarResult(result.getResultString());
+
                 }
 
                 // 显示

@@ -53,7 +53,6 @@ public final class R {
         public static final int setting_p=0x7f020004;
     }
     public static final class id {
-        public static final int image_tts_set=0x7f0a0009;
         public static final int isr_cancel=0x7f0a0008;
         public static final int isr_grammar=0x7f0a0004;
         public static final int isr_lexcion=0x7f0a0005;
@@ -63,15 +62,8 @@ public final class R {
         public static final int radioCloud=0x7f0a0002;
         public static final int radioGroup=0x7f0a0001;
         public static final int radioLocal=0x7f0a0003;
-        public static final int tts_btn_person_select=0x7f0a000e;
-        public static final int tts_cancel=0x7f0a0010;
-        public static final int tts_pause=0x7f0a0011;
-        public static final int tts_play=0x7f0a000f;
-        public static final int tts_radioCloud=0x7f0a000c;
-        public static final int tts_radioLocal=0x7f0a000d;
-        public static final int tts_rediogroup=0x7f0a000b;
-        public static final int tts_resume=0x7f0a0012;
-        public static final int tts_text=0x7f0a000a;
+        public static final int tts_rediogroup=0x7f0a000a;
+        public static final int tts_text=0x7f0a0009;
     }
     public static final class layout {
         public static final int isrdemo=0x7f030000;
