@@ -133,27 +133,7 @@ public class TtsDemo extends Activity implements OnClickListener {
         // 合成的音频格式：只支持pcm格式
 		case R.id.tts_play:
 			// 移动数据分析，收集开始合成事件
-			FlowerCollector.onEvent(TtsDemo.this, "tts_play");
-			
-			String text = ((EditText) findViewById(R.id.tts_text)).getText().toString();
-			// 设置参数
-			setParam();
-			int code = mTts.startSpeaking(text, mTtsListener);
-//			/** 
-//			 * 只保存音频不进行播放接口,调用此接口请注释startSpeaking接口
-//			 * text:要合成的文本，uri:需要保存的音频全路径，listener:回调接口
-//			*/
-//			String path = Environment.getExternalStorageDirectory()+"/tts.pcm";
-//			int code = mTts.synthesizeToUri(text, path, mTtsListener);
-			
-			if (code != ErrorCode.SUCCESS) {
-				if(code == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED){
-					//未安装则跳转到提示安装页面
-					mInstaller.install();
-				}else {
-					showTip("语音合成失败,错误码: " + code);	
-				}
-			}
+			speakVoice();
 			break;
 		// 取消合成
 		case R.id.tts_cancel:
@@ -173,6 +153,31 @@ public class TtsDemo extends Activity implements OnClickListener {
 			break;
 		}
 	}
+
+	public void speakVoice() {
+		FlowerCollector.onEvent(TtsDemo.this, "tts_play");
+
+		String text = ((EditText) findViewById(R.id.tts_text)).getText().toString();
+		// 设置参数
+		setParam();
+		int code = mTts.startSpeaking(text, mTtsListener);
+//			/**
+//			 * 只保存音频不进行播放接口,调用此接口请注释startSpeaking接口
+//			 * text:要合成的文本，uri:需要保存的音频全路径，listener:回调接口
+//			*/
+//			String path = Environment.getExternalStorageDirectory()+"/tts.pcm";
+//			int code = mTts.synthesizeToUri(text, path, mTtsListener);
+
+		if (code != ErrorCode.SUCCESS) {
+            if(code == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED){
+                //未安装则跳转到提示安装页面
+                mInstaller.install();
+            }else {
+                showTip("语音合成失败,错误码: " + code);
+            }
+        }
+	}
+
 	private int selectedNum = 0;
 	/**
 	 * 发音人选择。

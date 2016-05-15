@@ -14,12 +14,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 127,
+                        "startLine": 126,
                         "startColumn": 4,
-                        "startOffset": 5208,
-                        "endLine": 131,
+                        "startOffset": 4988,
+                        "endLine": 130,
                         "endColumn": 19,
-                        "endOffset": 5342
+                        "endOffset": 5122
                     }
                 }
             },
@@ -35,12 +35,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 132,
+                        "startLine": 131,
                         "startColumn": 4,
-                        "startOffset": 5348,
-                        "endLine": 136,
+                        "startOffset": 5128,
+                        "endLine": 135,
                         "endColumn": 19,
-                        "endOffset": 5510
+                        "endOffset": 5290
                     }
                 }
             },
@@ -56,12 +56,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 150,
+                        "startLine": 149,
                         "startColumn": 4,
-                        "startOffset": 5884,
-                        "endLine": 153,
+                        "startOffset": 5664,
+                        "endLine": 152,
                         "endColumn": 19,
-                        "endOffset": 5988
+                        "endOffset": 5768
                     }
                 }
             },
@@ -77,12 +77,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 71,
+                        "startLine": 70,
                         "startColumn": 5,
-                        "startOffset": 3370,
-                        "endLine": 76,
+                        "startOffset": 3150,
+                        "endLine": 75,
                         "endColumn": 19,
-                        "endOffset": 3525
+                        "endOffset": 3305
                     }
                 }
             },
@@ -98,12 +98,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 77,
+                        "startLine": 76,
                         "startColumn": 4,
-                        "startOffset": 3531,
-                        "endLine": 82,
+                        "startOffset": 3311,
+                        "endLine": 81,
                         "endColumn": 19,
-                        "endOffset": 3697
+                        "endOffset": 3477
                     }
                 }
             },
@@ -119,12 +119,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 23,
+                        "startLine": 22,
                         "startColumn": 4,
-                        "startOffset": 1857,
-                        "endLine": 26,
+                        "startOffset": 1637,
+                        "endLine": 25,
                         "endColumn": 19,
-                        "endOffset": 1968
+                        "endOffset": 1748
                     }
                 }
             },
@@ -140,12 +140,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 27,
+                        "startLine": 26,
                         "startColumn": 4,
-                        "startOffset": 1974,
-                        "endLine": 30,
+                        "startOffset": 1754,
+                        "endLine": 29,
                         "endColumn": 19,
-                        "endOffset": 2086
+                        "endOffset": 1866
                     }
                 }
             },
@@ -161,12 +161,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 119,
+                        "startLine": 118,
                         "startColumn": 4,
-                        "startOffset": 4965,
-                        "endLine": 122,
+                        "startOffset": 4745,
+                        "endLine": 121,
                         "endColumn": 19,
-                        "endOffset": 5078
+                        "endOffset": 4858
                     }
                 }
             },
@@ -182,12 +182,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 123,
+                        "startLine": 122,
                         "startColumn": 4,
-                        "startOffset": 5084,
-                        "endLine": 126,
+                        "startOffset": 4864,
+                        "endLine": 125,
                         "endColumn": 19,
-                        "endOffset": 5202
+                        "endOffset": 4982
                     }
                 }
             },
@@ -203,12 +203,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 101,
+                        "startLine": 100,
                         "startColumn": 4,
-                        "startOffset": 4223,
-                        "endLine": 106,
+                        "startOffset": 4003,
+                        "endLine": 105,
                         "endColumn": 19,
-                        "endOffset": 4384
+                        "endOffset": 4164
                     }
                 }
             },
@@ -224,12 +224,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 107,
+                        "startLine": 106,
                         "startColumn": 4,
-                        "startOffset": 4390,
-                        "endLine": 112,
+                        "startOffset": 4170,
+                        "endLine": 111,
                         "endColumn": 19,
-                        "endOffset": 4570
+                        "endOffset": 4350
                     }
                 }
             },
@@ -245,12 +245,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 142,
+                        "startLine": 141,
                         "startColumn": 4,
-                        "startOffset": 5663,
-                        "endLine": 145,
+                        "startOffset": 5443,
+                        "endLine": 144,
                         "endColumn": 19,
-                        "endOffset": 5770
+                        "endOffset": 5550
                     }
                 }
             },
@@ -266,12 +266,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 146,
+                        "startLine": 145,
                         "startColumn": 4,
-                        "startOffset": 5776,
-                        "endLine": 149,
+                        "startOffset": 5556,
+                        "endLine": 148,
                         "endColumn": 19,
-                        "endOffset": 5878
+                        "endOffset": 5658
                     }
                 }
             },
@@ -287,12 +287,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 137,
+                        "startLine": 136,
                         "startColumn": 4,
-                        "startOffset": 5516,
-                        "endLine": 140,
+                        "startOffset": 5296,
+                        "endLine": 139,
                         "endColumn": 19,
-                        "endOffset": 5638
+                        "endOffset": 5418
                     }
                 }
             },
@@ -308,12 +308,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 83,
+                        "startLine": 82,
                         "startColumn": 4,
-                        "startOffset": 3703,
-                        "endLine": 90,
+                        "startOffset": 3483,
+                        "endLine": 89,
                         "endColumn": 19,
-                        "endOffset": 3910
+                        "endOffset": 3690
                     }
                 }
             },
@@ -329,12 +329,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 91,
+                        "startLine": 90,
                         "startColumn": 4,
-                        "startOffset": 3916,
-                        "endLine": 98,
+                        "startOffset": 3696,
+                        "endLine": 97,
                         "endColumn": 19,
-                        "endOffset": 4116
+                        "endOffset": 3896
                     }
                 }
             },
@@ -350,12 +350,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 31,
+                        "startLine": 30,
                         "startColumn": 4,
-                        "startOffset": 2092,
-                        "endLine": 50,
+                        "startOffset": 1872,
+                        "endLine": 49,
                         "endColumn": 19,
-                        "endOffset": 2764
+                        "endOffset": 2544
                     }
                 }
             },
@@ -371,12 +371,12 @@
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 51,
+                        "startLine": 50,
                         "startColumn": 4,
-                        "startOffset": 2770,
-                        "endLine": 70,
+                        "startOffset": 2550,
+                        "endLine": 69,
                         "endColumn": 19,
-                        "endOffset": 3363
+                        "endOffset": 3143
                     }
                 }
             },
@@ -632,17 +632,17 @@
                     "startLine": 137,
                     "startColumn": 4,
                     "startOffset": 4149,
-                    "endColumn": 120,
-                    "endOffset": 4265
+                    "endColumn": 54,
+                    "endOffset": 4199
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 180,
-                        "endColumn": 120,
-                        "endOffset": 296
+                        "startOffset": 1447,
+                        "endColumn": 54,
+                        "endOffset": 1497
                     }
                 }
             },
@@ -650,18 +650,18 @@
                 "to": {
                     "startLine": 138,
                     "startColumn": 4,
-                    "startOffset": 4270,
-                    "endColumn": 54,
-                    "endOffset": 4320
+                    "startOffset": 4204,
+                    "endColumn": 53,
+                    "endOffset": 4253
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1667,
-                        "endColumn": 54,
-                        "endOffset": 1717
+                        "startOffset": 1559,
+                        "endColumn": 53,
+                        "endOffset": 1608
                     }
                 }
             },
@@ -669,18 +669,18 @@
                 "to": {
                     "startLine": 139,
                     "startColumn": 4,
-                    "startOffset": 4325,
-                    "endColumn": 53,
-                    "endOffset": 4374
+                    "startOffset": 4258,
+                    "endColumn": 54,
+                    "endOffset": 4308
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1779,
-                        "endColumn": 53,
-                        "endOffset": 1828
+                        "startOffset": 1503,
+                        "endColumn": 54,
+                        "endOffset": 1553
                     }
                 }
             },
@@ -688,18 +688,18 @@
                 "to": {
                     "startLine": 140,
                     "startColumn": 4,
-                    "startOffset": 4379,
-                    "endColumn": 54,
-                    "endOffset": 4429
+                    "startOffset": 4313,
+                    "endColumn": 45,
+                    "endOffset": 4354
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 1723,
-                        "endColumn": 54,
-                        "endOffset": 1773
+                        "startOffset": 1056,
+                        "endColumn": 45,
+                        "endOffset": 1097
                     }
                 }
             },
@@ -707,18 +707,18 @@
                 "to": {
                     "startLine": 141,
                     "startColumn": 4,
-                    "startOffset": 4434,
-                    "endColumn": 45,
-                    "endOffset": 4475
+                    "startOffset": 4359,
+                    "endColumn": 57,
+                    "endOffset": 4412
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1276,
-                        "endColumn": 45,
-                        "endOffset": 1317
+                        "startOffset": 1103,
+                        "endColumn": 57,
+                        "endOffset": 1156
                     }
                 }
             },
@@ -726,18 +726,18 @@
                 "to": {
                     "startLine": 142,
                     "startColumn": 4,
-                    "startOffset": 4480,
-                    "endColumn": 57,
-                    "endOffset": 4533
+                    "startOffset": 4417,
+                    "endColumn": 88,
+                    "endOffset": 4501
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 117,
                         "startColumn": 4,
-                        "startOffset": 1323,
-                        "endColumn": 57,
-                        "endOffset": 1376
+                        "startOffset": 4655,
+                        "endColumn": 88,
+                        "endOffset": 4739
                     }
                 }
             },
@@ -745,18 +745,18 @@
                 "to": {
                     "startLine": 143,
                     "startColumn": 4,
-                    "startOffset": 4538,
-                    "endColumn": 88,
-                    "endOffset": 4622
+                    "startOffset": 4506,
+                    "endColumn": 52,
+                    "endOffset": 4554
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 118,
+                        "startLine": 115,
                         "startColumn": 4,
-                        "startOffset": 4875,
-                        "endColumn": 88,
-                        "endOffset": 4959
+                        "startOffset": 4542,
+                        "endColumn": 52,
+                        "endOffset": 4590
                     }
                 }
             },
@@ -764,18 +764,18 @@
                 "to": {
                     "startLine": 144,
                     "startColumn": 4,
-                    "startOffset": 4627,
-                    "endColumn": 52,
-                    "endOffset": 4675
+                    "startOffset": 4559,
+                    "endColumn": 57,
+                    "endOffset": 4612
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 116,
                         "startColumn": 4,
-                        "startOffset": 4762,
-                        "endColumn": 52,
-                        "endOffset": 4810
+                        "startOffset": 4596,
+                        "endColumn": 57,
+                        "endOffset": 4649
                     }
                 }
             },
@@ -783,18 +783,18 @@
                 "to": {
                     "startLine": 145,
                     "startColumn": 4,
-                    "startOffset": 4680,
-                    "endColumn": 57,
-                    "endOffset": 4733
+                    "startOffset": 4617,
+                    "endColumn": 54,
+                    "endOffset": 4667
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 117,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 4816,
-                        "endColumn": 57,
-                        "endOffset": 4869
+                        "startOffset": 1391,
+                        "endColumn": 54,
+                        "endOffset": 1441
                     }
                 }
             },
@@ -802,18 +802,18 @@
                 "to": {
                     "startLine": 146,
                     "startColumn": 4,
-                    "startOffset": 4738,
-                    "endColumn": 54,
-                    "endOffset": 4788
+                    "startOffset": 4672,
+                    "endColumn": 91,
+                    "endOffset": 4759
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 114,
                         "startColumn": 4,
-                        "startOffset": 1611,
-                        "endColumn": 54,
-                        "endOffset": 1661
+                        "startOffset": 4449,
+                        "endColumn": 91,
+                        "endOffset": 4536
                     }
                 }
             },
@@ -821,18 +821,18 @@
                 "to": {
                     "startLine": 147,
                     "startColumn": 4,
-                    "startOffset": 4793,
-                    "endColumn": 91,
-                    "endOffset": 4880
+                    "startOffset": 4764,
+                    "endColumn": 72,
+                    "endOffset": 4832
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 115,
+                        "startLine": 113,
                         "startColumn": 4,
-                        "startOffset": 4669,
-                        "endColumn": 91,
-                        "endOffset": 4756
+                        "startOffset": 4375,
+                        "endColumn": 72,
+                        "endOffset": 4443
                     }
                 }
             },
@@ -840,18 +840,18 @@
                 "to": {
                     "startLine": 148,
                     "startColumn": 4,
-                    "startOffset": 4885,
-                    "endColumn": 72,
-                    "endOffset": 4953
+                    "startOffset": 4837,
+                    "endColumn": 214,
+                    "endOffset": 5047
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 114,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 4595,
-                        "endColumn": 72,
-                        "endOffset": 4663
+                        "startOffset": 656,
+                        "endColumn": 214,
+                        "endOffset": 866
                     }
                 }
             },
@@ -859,18 +859,18 @@
                 "to": {
                     "startLine": 149,
                     "startColumn": 4,
-                    "startOffset": 4958,
-                    "endColumn": 214,
-                    "endOffset": 5168
+                    "startOffset": 5052,
+                    "endColumn": 58,
+                    "endOffset": 5106
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 876,
-                        "endColumn": 214,
-                        "endOffset": 1086
+                        "startOffset": 180,
+                        "endColumn": 58,
+                        "endOffset": 234
                     }
                 }
             },
@@ -878,18 +878,18 @@
                 "to": {
                     "startLine": 150,
                     "startColumn": 4,
-                    "startOffset": 5173,
-                    "endColumn": 156,
-                    "endOffset": 5325
+                    "startOffset": 5111,
+                    "endColumn": 414,
+                    "endOffset": 5521
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 302,
-                        "endColumn": 156,
-                        "endOffset": 454
+                        "startOffset": 240,
+                        "endColumn": 414,
+                        "endOffset": 650
                     }
                 }
             },
@@ -897,18 +897,18 @@
                 "to": {
                     "startLine": 151,
                     "startColumn": 4,
-                    "startOffset": 5330,
-                    "endColumn": 414,
-                    "endOffset": 5740
+                    "startOffset": 5526,
+                    "endColumn": 165,
+                    "endOffset": 5687
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 460,
-                        "endColumn": 414,
-                        "endOffset": 870
+                        "startOffset": 872,
+                        "endColumn": 165,
+                        "endOffset": 1033
                     }
                 }
             },
@@ -916,18 +916,18 @@
                 "to": {
                     "startLine": 152,
                     "startColumn": 4,
-                    "startOffset": 5745,
-                    "endColumn": 165,
-                    "endOffset": 5906
+                    "startOffset": 5692,
+                    "endColumn": 54,
+                    "endOffset": 5742
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1092,
-                        "endColumn": 165,
-                        "endOffset": 1253
+                        "startOffset": 1162,
+                        "endColumn": 54,
+                        "endOffset": 1212
                     }
                 }
             },
@@ -935,18 +935,18 @@
                 "to": {
                     "startLine": 153,
                     "startColumn": 4,
-                    "startOffset": 5911,
-                    "endColumn": 54,
-                    "endOffset": 5961
+                    "startOffset": 5747,
+                    "endColumn": 52,
+                    "endOffset": 5795
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1382,
-                        "endColumn": 54,
-                        "endOffset": 1432
+                        "startOffset": 1276,
+                        "endColumn": 52,
+                        "endOffset": 1324
                     }
                 }
             },
@@ -954,18 +954,18 @@
                 "to": {
                     "startLine": 154,
                     "startColumn": 4,
-                    "startOffset": 5966,
-                    "endColumn": 52,
-                    "endOffset": 6014
+                    "startOffset": 5800,
+                    "endColumn": 56,
+                    "endOffset": 5852
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1496,
-                        "endColumn": 52,
-                        "endOffset": 1544
+                        "startOffset": 1218,
+                        "endColumn": 56,
+                        "endOffset": 1270
                     }
                 }
             },
@@ -973,18 +973,18 @@
                 "to": {
                     "startLine": 155,
                     "startColumn": 4,
-                    "startOffset": 6019,
-                    "endColumn": 56,
-                    "endOffset": 6071
+                    "startOffset": 5857,
+                    "endColumn": 59,
+                    "endOffset": 5912
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1438,
-                        "endColumn": 56,
-                        "endOffset": 1490
+                        "startOffset": 1330,
+                        "endColumn": 59,
+                        "endOffset": 1385
                     }
                 }
             },
@@ -992,18 +992,18 @@
                 "to": {
                     "startLine": 156,
                     "startColumn": 4,
-                    "startOffset": 6076,
-                    "endColumn": 59,
-                    "endOffset": 6131
+                    "startOffset": 5917,
+                    "endColumn": 82,
+                    "endOffset": 5995
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 98,
                         "startColumn": 4,
-                        "startOffset": 1550,
-                        "endColumn": 59,
-                        "endOffset": 1605
+                        "startOffset": 3902,
+                        "endColumn": 82,
+                        "endOffset": 3980
                     }
                 }
             },
@@ -1011,29 +1011,10 @@
                 "to": {
                     "startLine": 157,
                     "startColumn": 4,
-                    "startOffset": 6136,
-                    "endColumn": 82,
-                    "endOffset": 6214
-                },
-                "from": {
-                    "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 99,
-                        "startColumn": 4,
-                        "startOffset": 4122,
-                        "endColumn": 82,
-                        "endOffset": 4200
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 158,
-                    "startColumn": 4,
-                    "startOffset": 6219,
-                    "endLine": 167,
+                    "startOffset": 6000,
+                    "endLine": 166,
                     "endColumn": 9,
-                    "endOffset": 6743
+                    "endOffset": 6524
                 },
                 "from": {
                     "file": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\values\\styles.xml",
