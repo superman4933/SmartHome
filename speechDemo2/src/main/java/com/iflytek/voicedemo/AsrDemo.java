@@ -71,7 +71,7 @@ public class AsrDemo extends Activity implements OnClickListener{
 		mCloudGrammar = FucUtil.readFile(this,"grammar_sample.abnf","utf-8");
 		
 		// 获取联系人，本地更新词典时使用
-		ContactManager mgr = ContactManager.createManager(AsrDemo.this, mContactListener);	
+		ContactManager mgr = ContactManager.createManager(AsrDemo.this, mContactListener);
 		mgr.asyncQueryAllContactsName();
 		mSharedPreferences = getSharedPreferences(getPackageName(),	MODE_PRIVATE);
 		mToast = Toast.makeText(this,"",Toast.LENGTH_SHORT);	
@@ -243,6 +243,7 @@ public class AsrDemo extends Activity implements OnClickListener{
 	private GrammarListener mLocalGrammarListener = new GrammarListener() {
 		@Override
 		public void onBuildFinish(String grammarId, SpeechError error) {
+			Log.d("speechdemo2", "开始初始化语法监听器");
 			if(error == null){
 				showTip("语法构建成功：" + grammarId);
 			}else{

@@ -179,9 +179,12 @@ public class TtsDemo {
     }
 
     protected void stopSpeaking() {
-        mTts.stopSpeaking();
-        // 退出时释放连接
-        mTts.destroy();
+        if (mTts != null) {
+            mTts.stopSpeaking();
+            // 退出时释放连接
+            mTts.destroy();
+        }
+
     }
 
 

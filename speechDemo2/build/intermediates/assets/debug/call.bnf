@@ -5,7 +5,8 @@
 !slot <callPhone>;
 !slot <callTo>;
 !start <callStart>;
-<callStart>:[<callPre>][<callTo>]<contact><callPhone>|[<callPre>]<callPhone>[<callTo>]<contact>;
+<callStart>:<callStart2>;
+<callStart2>:[<callPre>][<callTo>]<contact><callPhone>|[<callPre>]<callPhone>[<callTo>]<contact>;
 <contact>:张海洋;
 <callPre>:我要|我想|我想要;
 <callPhone>:打电话;

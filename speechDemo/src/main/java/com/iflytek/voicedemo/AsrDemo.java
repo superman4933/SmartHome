@@ -3,7 +3,6 @@ package com.iflytek.voicedemo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -12,30 +11,27 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.GrammarListener;
 import com.iflytek.cloud.InitListener;
-import com.iflytek.cloud.LexiconListener;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechUtility;
-import com.iflytek.cloud.util.ContactManager;
-import com.iflytek.cloud.util.ContactManager.ContactListener;
 import com.iflytek.speech.util.ApkInstaller;
 import com.iflytek.speech.util.FucUtil;
 import com.iflytek.speech.util.JsonParser;
 import com.iflytek.sunflower.FlowerCollector;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class AsrDemo extends Activity implements OnClickListener {
     TtsDemo ttsDemo;
-
     private static String TAG = AsrDemo.class.getSimpleName();
     // 语音识别对象
     private SpeechRecognizer mAsr;
@@ -44,83 +40,76 @@ public class AsrDemo extends Activity implements OnClickListener {
     private SharedPreferences mSharedPreferences;
     // 本地语法文件
     private String mLocalGrammar = null;
-    // 本地词典
-    private String mLocalLexicon = null;
-    // 云端语法文件
-    private String mCloudGrammar = null;
-
     private static final String KEY_GRAMMAR_ABNF_ID = "grammar_abnf_id";
-    private static final String GRAMMAR_TYPE_ABNF = "abnf";
     private static final String GRAMMAR_TYPE_BNF = "bnf";
-
     private String mEngineType = null;
     // 语记安装助手类
     ApkInstaller mInstaller;
-
     @SuppressLint("ShowToast")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.isrdemo);
-        initLayout();
-ttsDemo=new TtsDemo();
+        ttsDemo = new TtsDemo();
         // 初始化识别对象
         mAsr = SpeechRecognizer.createRecognizer(AsrDemo.this, mInitListener);
-
         // 初始化语法、命令词
-        mLocalLexicon = "张海羊\n刘婧\n王锋\n";
         mLocalGrammar = FucUtil.readFile(this, "call.bnf", "utf-8");
-        mCloudGrammar = FucUtil.readFile(this, "grammar_sample.abnf", "utf-8");
-
-        // 获取联系人，本地更新词典时使用
-        ContactManager mgr = ContactManager.createManager(AsrDemo.this, mContactListener);
-        mgr.asyncQueryAllContactsName();
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-
         mInstaller = new ApkInstaller(AsrDemo.this);
+        init();
+        timer.schedule(timerTask, 1000);
     }
+//延迟一秒钟启动本地语法监听器，如果不延迟则会出错，原因未知
+    TimerTask timerTask = new TimerTask() {
+        @Override
+        public void run() {
+            buildGra();
+        }
+    };
+    Timer timer = new Timer();
 
-    /**
-     * 初始化Layout。
-     */
-    private void initLayout() {
+
+    private void init() {
         findViewById(R.id.isr_recognize).setOnClickListener(AsrDemo.this);
-        findViewById(R.id.isr_grammar).setOnClickListener(AsrDemo.this);
-        findViewById(R.id.isr_lexcion).setOnClickListener(AsrDemo.this);
-        findViewById(R.id.isr_stop).setOnClickListener(AsrDemo.this);
-        findViewById(R.id.isr_cancel).setOnClickListener(AsrDemo.this);
-
-        //选择云端or本地
-        RadioGroup group = (RadioGroup) this.findViewById(R.id.radioGroup);
-        group.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.radioCloud) {
-                    ((EditText) findViewById(R.id.isr_text)).setText(mCloudGrammar);
-                    findViewById(R.id.isr_lexcion).setEnabled(false);
-                    mEngineType = SpeechConstant.TYPE_CLOUD;
-                } else {
-                    ((EditText) findViewById(R.id.isr_text)).setText(mLocalGrammar);
-                    findViewById(R.id.isr_lexcion).setEnabled(true);
-                    mEngineType = SpeechConstant.TYPE_LOCAL;
-                    /**
-                     * 选择本地合成
-                     * 判断是否安装语记,未安装则跳转到提示安装页面
-                     */
-                    if (!SpeechUtility.getUtility().checkServiceInstalled()) {
-                        mInstaller.install();
-                    }
-                }
-            }
-        });
+        mEngineType = SpeechConstant.TYPE_LOCAL;
+        if (!SpeechUtility.getUtility().checkServiceInstalled()) {
+            mInstaller.install();
+        }
+        Log.d("speech", "init成功");
     }
 
     // 语法、词典临时变量
     String mContent;
     // 函数调用返回值
     int ret = 0;
+
+    private void buildGra() {
+        showTip("上传预设关键词/语法文件");
+        Log.d("speech", "开始构建语法");
+        if (mEngineType.equals(SpeechConstant.TYPE_LOCAL)) {
+            mContent = new String(mLocalGrammar);
+            mAsr.setParameter(SpeechConstant.TEXT_ENCODING, "utf-8");
+            //指定引擎类型
+            mAsr.setParameter(SpeechConstant.ENGINE_TYPE, mEngineType);
+            Log.d("speech", "开始构建语法2");
+            ret = mAsr.buildGrammar(GRAMMAR_TYPE_BNF, mContent, mLocalGrammarListener);
+            if (mLocalGrammarListener == null) {
+                Log.d("speech", "mLocalGrammarListener为空");
+            }
+            Log.d("speech", "开始构建语法3");
+            if (ret != ErrorCode.SUCCESS) {
+                if (ret == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
+                    //未安装则跳转到提示安装页面
+                    mInstaller.install();
+                } else {
+                    showTip("语法构建失败1,错误码：" + ret);
+                }
+            }
+        }
+        Log.d("speech", "开始构建语法4");
+    }
 
     @Override
     public void onClick(View view) {
@@ -129,65 +118,13 @@ ttsDemo=new TtsDemo();
             return;
         }
         switch (view.getId()) {
-            case R.id.isr_grammar:
-                showTip("上传预设关键词/语法文件");
-                // 本地-构建语法文件，生成语法id
-                if (mEngineType.equals(SpeechConstant.TYPE_LOCAL)) {
-                    ((EditText) findViewById(R.id.isr_text)).setText(mLocalGrammar);
-                    mContent = new String(mLocalGrammar);
-                    mAsr.setParameter(SpeechConstant.TEXT_ENCODING, "utf-8");
-                    //指定引擎类型
-                    mAsr.setParameter(SpeechConstant.ENGINE_TYPE, mEngineType);
-                    ret = mAsr.buildGrammar(GRAMMAR_TYPE_BNF, mContent, mLocalGrammarListener);
-                    if (ret != ErrorCode.SUCCESS) {
-                        if (ret == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
-                            //未安装则跳转到提示安装页面
-                            mInstaller.install();
-                        } else {
-                            showTip("语法构建失败,错误码：" + ret);
-                        }
-                    }
-                }
-                // 在线-构建语法文件，生成语法id
-                else {
-                    ((EditText) findViewById(R.id.isr_text)).setText(mCloudGrammar);
-                    mContent = new String(mCloudGrammar);
-                    //指定引擎类型
-                    mAsr.setParameter(SpeechConstant.ENGINE_TYPE, mEngineType);
-                    mAsr.setParameter(SpeechConstant.TEXT_ENCODING, "utf-8");
-                    ret = mAsr.buildGrammar(GRAMMAR_TYPE_ABNF, mContent, mCloudGrammarListener);
-                    if (ret != ErrorCode.SUCCESS)
-                        showTip("语法构建失败,错误码：" + ret);
-                }
-
-                break;
-            // 本地-更新词典      注意:更新词典需要在接收到构建语法回调onBuildFinish之后进行，否则会导致错误。
-            case R.id.isr_lexcion:
-                ((EditText) findViewById(R.id.isr_text)).setText(mLocalLexicon);
-                mContent = new String(mLocalLexicon);
-                //指定引擎类型
-                mAsr.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_LOCAL);
-                mAsr.setParameter(SpeechConstant.GRAMMAR_LIST, "call");
-                ret = mAsr.updateLexicon("<contact>", mContent, mLexiconListener);
-                if (ret != ErrorCode.SUCCESS) {
-                    if (ret == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
-                        //未安装则跳转到提示安装页面
-                        mInstaller.install();
-                    } else {
-                        showTip("更新词典失败,错误码：" + ret);
-                    }
-                }
-                break;
             // 开始识别
             case R.id.isr_recognize:
-                ((EditText) findViewById(R.id.isr_text)).setText(null);// 清空显示内容
                 // 设置参数
                 if (!setParam()) {
                     showTip("请先构建语法。");
                     return;
                 }
-
-
                 ret = mAsr.startListening(mRecognizerListener);
                 if (ret != ErrorCode.SUCCESS) {
                     if (ret == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
@@ -197,16 +134,6 @@ ttsDemo=new TtsDemo();
                         showTip("识别失败,错误码: " + ret);
                     }
                 }
-                break;
-            // 停止识别
-            case R.id.isr_stop:
-                mAsr.stopListening();
-                showTip("停止识别");
-                break;
-            // 取消识别
-            case R.id.isr_cancel:
-                mAsr.cancel();
-                showTip("取消识别");
                 break;
         }
     }
@@ -226,60 +153,21 @@ ttsDemo=new TtsDemo();
     };
 
     /**
-     * 更新词典监听器。
-     */
-    private LexiconListener mLexiconListener = new LexiconListener() {
-        @Override
-        public void onLexiconUpdated(String lexiconId, SpeechError error) {
-            if (error == null) {
-                showTip("词典更新成功");
-            } else {
-                showTip("词典更新失败,错误码：" + error.getErrorCode());
-            }
-        }
-    };
-
-    /**
      * 本地构建语法监听器。
      */
     private GrammarListener mLocalGrammarListener = new GrammarListener() {
         @Override
+
         public void onBuildFinish(String grammarId, SpeechError error) {
+            Log.d("speech", "初始化本地语法监听器");
             if (error == null) {
                 showTip("语法构建成功：" + grammarId);
             } else {
-                showTip("语法构建失败,错误码：" + error.getErrorCode());
+                showTip("语法构建失败2,错误码：" + error.getErrorCode());
             }
         }
     };
-    /**
-     * 云端构建语法监听器。
-     */
-    private GrammarListener mCloudGrammarListener = new GrammarListener() {
-        @Override
-        public void onBuildFinish(String grammarId, SpeechError error) {
-            if (error == null) {
-                String grammarID = new String(grammarId);
-                Editor editor = mSharedPreferences.edit();
-                if (!TextUtils.isEmpty(grammarId))
-                    editor.putString(KEY_GRAMMAR_ABNF_ID, grammarID);
-                editor.commit();
-                showTip("语法构建成功：" + grammarId);
-            } else {
-                showTip("语法构建失败,错误码：" + error.getErrorCode());
-            }
-        }
-    };
-    /**
-     * 获取联系人监听器。
-     */
-    private ContactListener mContactListener = new ContactListener() {
-        @Override
-        public void onContactQueryFinish(String contactInfos, boolean changeFlag) {
-            //获取联系人
-            mLocalLexicon = contactInfos;
-        }
-    };
+
     /**
      * 识别监听器。
      */
@@ -303,12 +191,16 @@ ttsDemo=new TtsDemo();
                 } else {
 //                    本地识别的解析方法
                     text = JsonParser.parseLocalGrammarResult(result.getResultString());
-
                 }
 
                 // 显示
                 showTip("识别成功");
-                ttsDemo.speakVoice(AsrDemo.this,"你好");
+                if (text.contains("open") && text.contains("airCondition")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "打开空调");
+                } else {
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒");
+                }
+
                 ((EditText) findViewById(R.id.isr_text)).setText(text);
             } else {
                 Log.d(TAG, "recognizer result : null");

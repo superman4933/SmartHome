@@ -4,8 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import android.util.Log;
-
 /**
  * Json结果解析类
  */
@@ -67,13 +65,15 @@ public class JsonParser {
 	
 	public static String parseLocalGrammarResult(String json) {
 		StringBuffer ret = new StringBuffer();
+		StringBuffer retslot = new StringBuffer();
 		try {
 			JSONTokener tokener = new JSONTokener(json);
 			JSONObject joResult = new JSONObject(tokener);
-
 			JSONArray words = joResult.getJSONArray("ws");
 			for (int i = 0; i < words.length(); i++) {
 				JSONArray items = words.getJSONObject(i).getJSONArray("cw");
+				String slResult=words.getJSONObject(i).getString("slot");
+				retslot.append(slResult);
 				for(int j = 0; j < items.length(); j++)
 				{
 					JSONObject obj = items.getJSONObject(j);
@@ -82,16 +82,15 @@ public class JsonParser {
 						ret.append("没有匹配结果.");
 						return ret.toString();
 					}
-					ret.append("【结果】" + obj.getString("w"));
-					ret.append("\n");
+					ret.append(obj.getString("w"));
 				}
 			}
-			ret.append("【置信度】" + joResult.optInt("sc"));
+			ret.append("准确度：" + joResult.optInt("sc"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			ret.append("没有匹配结果.");
 		} 
-		return ret.toString();
+		return ret.toString()+"\n"+retslot.toString();
 	}
 }

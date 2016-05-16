@@ -1,12 +1,41 @@
 #BNF+IAT 1.0 UTF-8;
-!grammar call;
-!slot <contact>;
-!slot <callPre>;
-!slot <callPhone>;
-!slot <callTo>;
-!start <callStart>;
-<callStart>:[<callPre>][<callTo>]<contact><callPhone>|[<callPre>]<callPhone>[<callTo>]<contact>|[<callTo>];
-<contact>:张海洋|张小明|你好;
-<callPre>:我要|我想|你好;
-<callPhone>:打电话|你好;
-<callTo>:给|你好|你大爷|你傻逼|瞅你咋地;
+!grammar call;//定义语法名称
+!slot <TV>;//被控制的物体和物体的某种属性
+!slot <airCondition>;
+!slot <light>;
+!slot <temperature>;
+!slot <vol>;
+!slot <hold>;
+!slot <open>;
+//以下是想要让物体达到的状态
+!slot <close>;
+!slot <tempUp>;
+!slot <tempDown>;
+!slot <volTurnUp>;
+!slot <volTurnDown>;
+
+!start <smartHome>;//定义开始规则,下面一行为规则的具体内容
+
+//主规则，系统只认主规则
+<smartHome>:<controlTV>|<controlAir>|<controlLight>|<volControl>|<tempControl>;
+
+//被引用的子规则，注意变量命名不能超过15个字符
+<controlTV>:<open><TV>|[<hold>]<TV><open>|<close><TV>|[<hold>]<TV><close>;
+<controlAir>:<open><airCondition>|[<hold>]<airCondition><open>|<close><airCondition>|[<hold>]<airCondition><close>;
+<controlLight>:<open><light>|[<hold>]<light><open>|<close><light>|[<hold>]<light><close>;
+<volControl>:<vol><volTurnDown>|<vol><volTurnUp>;
+<tempControl>:<temperature><tempUp>|<temperature><tempDown>;
+
+//为声明过的槽，定义具体的名称
+<TV>:电视|电视机;
+<airCondition>:空调;
+<light>:灯|电灯;
+<temperature>:温度;
+<vol>:声音|音量;
+<hold>:把;
+<open>:打开|开了|开起来;
+<close>:关闭|关掉|关了;
+<tempUp>:高点|调高;
+<tempDown>:低点|调高;
+<volTurnUp>:重点;
+<volTurnDown>:轻点;
