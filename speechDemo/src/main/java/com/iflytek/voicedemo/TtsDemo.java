@@ -1,20 +1,10 @@
 package com.iflytek.voicedemo;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
 import com.iflytek.cloud.ErrorCode;
@@ -24,55 +14,40 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.SynthesizerListener;
-import com.iflytek.speech.setting.TtsSettings;
 import com.iflytek.speech.util.ApkInstaller;
 import com.iflytek.sunflower.FlowerCollector;
 
-public class TtsDemo extends Activity  {
+public class TtsDemo {
     private static String TAG = TtsDemo.class.getSimpleName();
     // 语音合成对象
     private SpeechSynthesizer mTts;
-    // 缓冲进度
-    private int mPercentForBuffering = 0;
-    // 播放进度
-    private int mPercentForPlaying = 0;
     // 语记安装助手类
     ApkInstaller mInstaller;
     private Toast mToast;
-    private SharedPreferences mSharedPreferences;
+    String text2;
+
     @SuppressLint("ShowToast")
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.ttsdemo);
+    public void speakVoice(Context context, String text) {
+        text2 = text;
         // 初始化合成对象
-        mTts = SpeechSynthesizer.createSynthesizer(TtsDemo.this, mTtsInitListener);
-        mSharedPreferences = getSharedPreferences(TtsSettings.PREFER_NAME, MODE_PRIVATE);
-        mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-        mInstaller = new ApkInstaller(TtsDemo.this);
-    }
-
-    public void speakVoice() {
         if (mTts == null) {
-            Log.d("mtts", "1");
-            if(mTtsInitListener==null){
-                Log.d("mtts", "2");
-            }
-      mTts = SpeechSynthesizer.createSynthesizer(TtsDemo.this, mTtsInitListener);
-            Log.d("mtts", "3");
+            mTts = SpeechSynthesizer.createSynthesizer(context, mTtsInitListener);
         }
-        FlowerCollector.onEvent(TtsDemo.this, "tts_play");
+        if (mToast == null) {
+            mToast = Toast.makeText(context, "", Toast.LENGTH_SHORT);
+        }
+        if (mInstaller == null) {
+            mInstaller = new ApkInstaller(new AsrDemo());
+        }
+        if (!SpeechUtility.getUtility().checkServiceInstalled()) {
+            mInstaller.install();
+        }
 
-        String text = ((EditText) findViewById(R.id.tts_text)).getText().toString();
+        FlowerCollector.onEvent(context, "tts_play");
         // 设置参数
         setParam();
-        int code = mTts.startSpeaking(text, mTtsListener);
-//			/**
-//			 * 只保存音频不进行播放接口,调用此接口请注释startSpeaking接口
-//			 * text:要合成的文本，uri:需要保存的音频全路径，listener:回调接口
-//			*/
-//			String path = Environment.getExternalStorageDirectory()+"/tts.pcm";
-//			int code = mTts.synthesizeToUri(text, path, mTtsListener);
+
+        int code = mTts.startSpeaking(text2, mTtsListener);
 
         if (code != ErrorCode.SUCCESS) {
             if (code == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
@@ -83,20 +58,23 @@ public class TtsDemo extends Activity  {
             }
         }
     }
+
     /**
      * 初始化监听。
      */
     private InitListener mTtsInitListener = new InitListener() {
         @Override
-        public void onInit(int code) {
-            Log.d(TAG, "InitListener init() code = " + code);
-            if (code != ErrorCode.SUCCESS) {
-                showTip("初始化失败,错误码：" + code);
+        public void onInit(int codeError) {
+            Log.d(TAG, "InitListener init() code = " + codeError);
+            if (codeError != ErrorCode.SUCCESS) {
+                showTip("初始化失败,错误码：" + codeError);
             } else {
+//实测发现只有在第一次在外部调用说话方法时才会调用此处代码，第二次调用的是上面的speckvoice方法
+                mTts.startSpeaking(text2, mTtsListener);
+                Log.d("mttsinit","初始化语音合成监听器");
                 // 初始化成功，之后可以调用startSpeaking方法
                 // 注：有的开发者在onCreate方法中创建完合成对象之后马上就调用startSpeaking进行合成，
                 // 正确的做法是将onCreate中的startSpeaking调用移至这里
-                speakVoice();
             }
         }
     };
@@ -127,17 +105,12 @@ public class TtsDemo extends Activity  {
         public void onBufferProgress(int percent, int beginPos, int endPos,
                                      String info) {
             // 合成进度
-            mPercentForBuffering = percent;
-            showTip(String.format(getString(R.string.tts_toast_format),
-                    mPercentForBuffering, mPercentForPlaying));
         }
 
         @Override
         public void onSpeakProgress(int percent, int beginPos, int endPos) {
             // 播放进度
-            mPercentForPlaying = percent;
-            showTip(String.format(getString(R.string.tts_toast_format),
-                    mPercentForBuffering, mPercentForPlaying));
+
         }
 
         @Override
@@ -168,7 +141,7 @@ public class TtsDemo extends Activity  {
     /**
      * 参数设置
      *
-     * @param param
+     * @param
      * @return
      */
     private void setParam() {
@@ -186,16 +159,16 @@ public class TtsDemo extends Activity  {
 //            //设置合成音量
 //            mTts.setParameter(SpeechConstant.VOLUME, mSharedPreferences.getString("volume_preference", "50"));
 //        } else {
-            mTts.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_LOCAL);
-            // 设置本地合成发音人 voicer为空，默认通过语记界面指定发音人。
-            mTts.setParameter(SpeechConstant.VOICE_NAME, "");
-            /**
-             * TODO 本地合成不设置语速、音调、音量，默认使用语记设置
-             * 开发者如需自定义参数，请参考在线合成参数设置
-             */
+        mTts.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_LOCAL);
+        // 设置本地合成发音人 voicer为空，默认通过语记界面指定发音人。
+        mTts.setParameter(SpeechConstant.VOICE_NAME, "");
+        /**
+         * TODO 本地合成不设置语速、音调、音量，默认使用语记设置
+         * 开发者如需自定义参数，请参考在线合成参数设置
+         */
 //        }
         //设置播放器音频流类型
-        mTts.setParameter(SpeechConstant.STREAM_TYPE, mSharedPreferences.getString("stream_preference", "3"));
+        mTts.setParameter(SpeechConstant.STREAM_TYPE, "3");
         // 设置播放合成音频打断音乐播放，默认为true
         mTts.setParameter(SpeechConstant.KEY_REQUEST_FOCUS, "true");
 
@@ -205,28 +178,11 @@ public class TtsDemo extends Activity  {
         mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, Environment.getExternalStorageDirectory() + "/msc/tts.wav");
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void stopSpeaking() {
         mTts.stopSpeaking();
         // 退出时释放连接
         mTts.destroy();
     }
 
-    @Override
-    protected void onResume() {
-        //移动数据统计分析
-        FlowerCollector.onResume(TtsDemo.this);
-        FlowerCollector.onPageStart(TAG);
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        //移动数据统计分析
-        FlowerCollector.onPageEnd(TAG);
-        FlowerCollector.onPause(TtsDemo.this);
-        super.onPause();
-    }
 
 }

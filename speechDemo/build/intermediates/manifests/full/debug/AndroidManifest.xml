@@ -24,15 +24,8 @@
         android:name="com.iflytek.voicedemo.SpeechApp"
         android:icon="@drawable/icon"
         android:label="讯飞语音示例" >
-        <activity android:name="com.iflytek.speech.setting.TtsSettings" >
-        </activity>
         <activity
             android:name="com.iflytek.voicedemo.AsrDemo"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.iflytek.voicedemo.TtsDemo"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -41,6 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- 移动统计分析 -->
         <meta-data
             android:name="IFLYTEK_APPKEY"

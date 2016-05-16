@@ -5,8 +5,8 @@
 !slot <callPhone>;
 !slot <callTo>;
 !start <callStart>;
-<callStart>:[<callPre>][<callTo>]<contact><callPhone>|[<callPre>]<callPhone>[<callTo>]<contact>;
-<contact>:张海洋|张小明|王大力;
-<callPre>:我要|我想|我想要;
-<callPhone>:打电话;
-<callTo>:给;
+<callStart>:[<callPre>][<callTo>]<contact><callPhone>|[<callPre>]<callPhone>[<callTo>]<contact>|[<callTo>];
+<contact>:张海洋|张小明|你好;
+<callPre>:我要|我想|你好;
+<callPhone>:打电话|你好;
+<callTo>:给|你好|你大爷|你傻逼|瞅你咋地;

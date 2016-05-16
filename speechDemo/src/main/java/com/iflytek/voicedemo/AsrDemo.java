@@ -34,6 +34,8 @@ import com.iflytek.speech.util.JsonParser;
 import com.iflytek.sunflower.FlowerCollector;
 
 public class AsrDemo extends Activity implements OnClickListener {
+    TtsDemo ttsDemo;
+
     private static String TAG = AsrDemo.class.getSimpleName();
     // 语音识别对象
     private SpeechRecognizer mAsr;
@@ -61,7 +63,7 @@ public class AsrDemo extends Activity implements OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.isrdemo);
         initLayout();
-
+ttsDemo=new TtsDemo();
         // 初始化识别对象
         mAsr = SpeechRecognizer.createRecognizer(AsrDemo.this, mInitListener);
 
@@ -184,7 +186,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                     showTip("请先构建语法。");
                     return;
                 }
-                ;
+
 
                 ret = mAsr.startListening(mRecognizerListener);
                 if (ret != ErrorCode.SUCCESS) {
@@ -286,7 +288,7 @@ public class AsrDemo extends Activity implements OnClickListener {
         @Override
         public void onVolumeChanged(int volume, byte[] data) {
             showTip("当前正在说话，音量大小：" + volume);
-            Log.d(TAG, "返回音频数据：" + data.length);
+//            Log.d(TAG, "返回音频数据：" + data.length);
         }
 
         @Override
@@ -305,8 +307,8 @@ public class AsrDemo extends Activity implements OnClickListener {
                 }
 
                 // 显示
-                showTip("你好");
-//				new TtsDemo().speakVoice();
+                showTip("识别成功");
+                ttsDemo.speakVoice(AsrDemo.this,"你好");
                 ((EditText) findViewById(R.id.isr_text)).setText(text);
             } else {
                 Log.d(TAG, "recognizer result : null");
@@ -394,6 +396,9 @@ public class AsrDemo extends Activity implements OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         // 退出时释放连接
+        if (ttsDemo != null) {
+            ttsDemo.stopSpeaking();
+        }
         mAsr.cancel();
         mAsr.destroy();
     }

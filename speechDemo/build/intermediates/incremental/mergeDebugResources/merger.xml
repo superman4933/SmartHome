@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main$Generated" generated="true"><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res"/><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\build\generated\res\rs\debug"/><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\build\generated\res\resValues\debug"/></dataSet><dataSet config="debug$Generated" generated="true"><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\debug\res"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res"><file name="list_bg_color" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\list_bg_color.xml" qualifiers="" type="drawable"/><file name="main_setting_btn_np" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\main_setting_btn_np.xml" qualifiers="" type="drawable"/><file name="setting" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\setting.png" qualifiers="" type="drawable"/><file name="setting_p" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\setting_p.png" qualifiers="" type="drawable"/><file name="icon" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable-hdpi\icon.png" qualifiers="hdpi-v4" type="drawable"/><file name="icon" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable-ldpi\icon.png" qualifiers="ldpi-v4" type="drawable"/><file name="icon" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable-mdpi\icon.png" qualifiers="mdpi-v4" type="drawable"/><file name="isrdemo" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\layout\isrdemo.xml" qualifiers="" type="layout"/><file name="ttsdemo" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\layout\ttsdemo.xml" qualifiers="" type="layout"/><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\colors.xml" qualifiers=""><drawable name="line_background">#161823</drawable><color name="content_color">#737373</color><color name="white">#FFFFFF</color><color name="title_color">#0f8ec5</color><drawable name="layout_backgroud">#000000</drawable><color name="list_backgroud_color">#2fb3cb</color></file><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\dimen.xml" qualifiers=""><dimen name="margin_">10dp</dimen><dimen name="txt_size">18sp</dimen><dimen name="line_height">1dp</dimen><dimen name="pading_">5dp</dimen><dimen name="btn_size">22sp</dimen></file><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\strings.xml" qualifiers=""><string-array name="language_values">
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res"/><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\build\generated\res\rs\debug"/><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\build\generated\res\resValues\debug"/></dataSet><dataSet config="debug$Generated" generated="true"><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\debug\res"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res"><file name="list_bg_color" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\list_bg_color.xml" qualifiers="" type="drawable"/><file name="main_setting_btn_np" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\main_setting_btn_np.xml" qualifiers="" type="drawable"/><file name="setting" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\setting.png" qualifiers="" type="drawable"/><file name="setting_p" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable\setting_p.png" qualifiers="" type="drawable"/><file name="icon" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable-hdpi\icon.png" qualifiers="hdpi-v4" type="drawable"/><file name="icon" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable-ldpi\icon.png" qualifiers="ldpi-v4" type="drawable"/><file name="icon" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\drawable-mdpi\icon.png" qualifiers="mdpi-v4" type="drawable"/><file name="isrdemo" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\layout\isrdemo.xml" qualifiers="" type="layout"/><file name="ttsdemo" path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\layout\ttsdemo.xml" qualifiers="" type="layout"/><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\colors.xml" qualifiers=""><drawable name="line_background">#161823</drawable><color name="content_color">#737373</color><color name="white">#FFFFFF</color><color name="title_color">#0f8ec5</color><drawable name="layout_backgroud">#000000</drawable><color name="list_backgroud_color">#2fb3cb</color></file><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\dimen.xml" qualifiers=""><dimen name="margin_">10dp</dimen><dimen name="txt_size">18sp</dimen><dimen name="line_height">1dp</dimen><dimen name="btn_size">22sp</dimen><dimen name="pading_">5dp</dimen></file><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\strings.xml" qualifiers=""><string-array name="language_values">
         <item>mandarin</item>
         <item>cantonese</item>
         <item>henanese</item>
         <item>en_us</item>
-    </string-array><string name="text_tts_source">你想让我读什么，我都读给你听</string><string name="text_tts_source_en">iFLYTEK is a national key software enterprise dedicated to the research of intelligent speech and language technologies, development of software and chip products, provision of speech information services, and integration of E-government systems. The intelligent speech technology of iFLYTEK, the core technology of the company, represents the top level in the world.</string><string name="text_en_sentence">"The quick brown fox jumps over the lazy dog."</string><string name="text_download_success">下载成功</string><string name="text_begin_recognizer">开始音频流识别</string><string-array name="emot_entries">
+    </string-array><string name="text_tts_source">你想让我读什么，我都读给你听</string><string name="text_en_sentence">"The quick brown fox jumps over the lazy dog."</string><string name="text_tts_source_en">iFLYTEK is a national key software enterprise dedicated to the research of intelligent speech and language technologies, development of software and chip products, provision of speech information services, and integration of E-government systems. The intelligent speech technology of iFLYTEK, the core technology of the company, represents the top level in the world.</string><string name="text_download_success">下载成功</string><string name="text_begin_recognizer">开始音频流识别</string><string-array name="emot_entries">
         <item>正常</item>
         <item>高兴</item>
         <item>悲伤</item>
@@ -15,7 +15,7 @@
     </string-array><string-array name="dwa_entries">
         <item>开启</item>
         <item>关闭</item>
-    </string-array><string-array name="voicer_cloud_entries">
+    </string-array><string name="text_upload_success">上传成功</string><string name="text_isr_abnf_hint">\t上传内容为：\n\t#ABNF 1.0 gb2312;\n\tlanguage zh-CN;\n\tmode voice;\n\troot $main;\n\t$main = $place1 到$place2 ;\n\t$place1 = 北京 | 武汉 | 南京 | 天津 | 东京;\n\t$place2 = 上海 | 合肥;</string><string-array name="voicer_cloud_entries">
         <item>小燕—女青、中英、普通话</item>
         <item>小宇—男青、中英、普通话</item>
         <item>凯瑟琳—女青、英</item>
@@ -34,7 +34,7 @@
         <item>小新—男童、中、普通话</item>
         <item>楠楠—女童、中、普通话</item>
         <item>老孙—男老、中、普通话</item>
-    </string-array><string name="text_isr_abnf_hint">\t上传内容为：\n\t#ABNF 1.0 gb2312;\n\tlanguage zh-CN;\n\tmode voice;\n\troot $main;\n\t$main = $place1 到$place2 ;\n\t$place1 = 北京 | 武汉 | 南京 | 天津 | 东京;\n\t$place2 = 上海 | 合肥;</string><string name="text_upload_success">上传成功</string><string name="app_id">5736e792</string><string name="pref_title_iat_dwa">结果动态修正</string><string-array name="result_level_entries">
+    </string-array><string name="app_id">5736e792</string><string name="pref_title_iat_dwa">结果动态修正</string><string-array name="result_level_entries">
         <item>plain</item>
         <item>complete</item>
     </string-array><string-array name="stream_values">
@@ -58,23 +58,27 @@
     </string-array><string name="text_upload_userwords">上传用户词表</string><string-array name="punc_entries">
         <item>有标点</item>
         <item>无标点</item>
-    </string-array><string name="text_begin">请开始说话…</string><string name="text_upload_contacts">上传联系人</string><string-array name="stream_entries">
+    </string-array><string name="text_begin">请开始说话…</string><string name="text_upload_contacts">上传联系人</string><string name="text_en_word">"[word]\napple\nbanana\norange"</string><string-array name="stream_entries">
         <item>通话</item>
         <item>系统</item>
         <item>铃声</item>
         <item>音乐</item>
         <item>闹铃</item>
         <item>通知</item>
-    </string-array><string name="text_en_word">"[word]\napple\nbanana\norange"</string><string name="pref_key_iat_show">iat_show</string><string-array name="emot_values">
+    </string-array><string name="pref_key_iat_show">iat_show</string><string-array name="category_values">
+        <item>read_syllable</item>
+        <item>read_word</item>
+        <item>read_sentence</item>
+    </string-array><string name="text_cn_word">"磁铁，率领，脆弱，动手，古筝"</string><string name="app_name">讯飞语音示例</string><string name="pref_title_iat_show">显示听写界面</string><string-array name="emot_values">
         <item>neutral</item>
         <item>happy</item>
         <item>sad</item>
         <item>angry</item>
-    </string-array><string name="pref_title_iat_show">显示听写界面</string><string name="app_name">讯飞语音示例</string><string name="text_cn_word">"磁铁，率领，脆弱，动手，古筝"</string><string-array name="category_values">
-        <item>read_syllable</item>
-        <item>read_word</item>
-        <item>read_sentence</item>
-    </string-array><string formatted="false" name="tts_toast_format">缓冲进度为%d%%，播放进度为%d%%</string><string-array name="voicer_cloud_values">
+    </string-array><string formatted="false" name="tts_toast_format">缓冲进度为%d%%，播放进度为%d%%</string><string-array name="category_entries">
+        <item>单字</item>
+        <item>词语</item>
+        <item>句子</item>
+    </string-array><string name="text_userword_empty">词表下载失败或内容为空</string><string-array name="voicer_cloud_values">
         <item>xiaoyan</item>
         <item>xiaoyu</item>
         <item>catherine</item>
@@ -93,17 +97,13 @@
         <item>xiaoxin</item>
         <item>nannan</item>
         <item>vils</item>
-    </string-array><string name="text_userword_empty">词表下载失败或内容为空</string><string-array name="category_entries">
-        <item>单字</item>
-        <item>词语</item>
-        <item>句子</item>
-    </string-array><string name="text_understand_hint">\t您可以说：\n\t今天的天气怎么样?\n\t北京到上海的火车?\n\t有什么好吃的?\n\t上海外滩有哪些酒店?\n\n\t更多语义请登录：\n\thttp://osp.voicecloud.cn/ \n\t配置您的专属语义吧!</string><string-array name="ise_language_values">
+    </string-array><string-array name="ise_language_values">
         <item>en_us</item>
         <item>zh_cn</item>
-    </string-array><string-array name="engine_entries">
+    </string-array><string name="text_understand_hint">\t您可以说：\n\t今天的天气怎么样?\n\t北京到上海的火车?\n\t有什么好吃的?\n\t上海外滩有哪些酒店?\n\n\t更多语义请登录：\n\thttp://osp.voicecloud.cn/ \n\t配置您的专属语义吧!</string><string name="text_cn_syllable">"知，痴，是"</string><string-array name="engine_entries">
         <item>本地合成</item>
         <item>在线合成</item>
-    </string-array><string name="text_cn_syllable">"知，痴，是"</string></file><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\styles.xml" qualifiers=""><style name="dialog" parent="@android:style/Theme.Dialog">
+    </string-array></file><file path="D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\res\values\styles.xml" qualifiers=""><style name="dialog" parent="@android:style/Theme.Dialog">
   <item name="android:windowFrame">@null</item>
   <item name="android:windowIsFloating">true</item>
   <item name="android:windowIsTranslucent">true</item>

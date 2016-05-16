@@ -1,9 +1,2 @@
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\R$xml$override.class
 CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\R$id$override.class
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\TtsDemo$override.class
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\R$string$override.class
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\TtsDemo$1$override.class
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\R$style$override.class
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\R$layout$override.class
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\R$override.class
+CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\AsrDemo$7$override.class

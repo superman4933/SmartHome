@@ -27,14 +27,14 @@ Moved Files:
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => speechDemo\src\main\AndroidManifest.xml
-* assets\ => speechDemo\src\main\assets\
-* libs\armeabi\libmsc.so => speechDemo\src\main\jniLibs\armeabi\libmsc.so
-* libs\Msc.jar => speechDemo\libs\Msc.jar
-* libs\Sunflower.jar => speechDemo\libs\Sunflower.jar
-* lint.xml => speechDemo\lint.xml
-* res\ => speechDemo\src\main\res\
-* src\ => speechDemo\src\main\java\
+* AndroidManifest.xml => speechDemo2\src\main\AndroidManifest.xml
+* assets\ => speechDemo2\src\main\assets\
+* libs\armeabi\libmsc.so => speechDemo2\src\main\jniLibs\armeabi\libmsc.so
+* libs\Msc.jar => speechDemo2\libs\Msc.jar
+* libs\Sunflower.jar => speechDemo2\libs\Sunflower.jar
+* lint.xml => speechDemo2\lint.xml
+* res\ => speechDemo2\src\main\res\
+* src\ => speechDemo2\src\main\java\
 
 Missing Android Support Repository:
 -----------------------------------
