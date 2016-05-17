@@ -18,7 +18,7 @@ ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest
 application
 ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:7:5-33:19
 	android:label
-		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:10:9-31
+		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:10:9-33
 	android:icon
 		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:8:9-38
 	android:name

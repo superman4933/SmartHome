@@ -7,7 +7,7 @@
     <application
         android:icon="@drawable/icon"
         android:name="SpeechApp"
-        android:label="讯飞语音示例" >
+        android:label="智能家居V1.0" >
 
         <activity
             android:name="com.iflytek.voicedemo.AsrDemo"

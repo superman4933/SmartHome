@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,14 +28,16 @@ import com.iflytek.sunflower.FlowerCollector;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
+/*此类为一个语音交互的activity*/
 public class AsrDemo extends Activity implements OnClickListener {
+    boolean isBeginRec;
     TtsDemo ttsDemo;
     private static String TAG = AsrDemo.class.getSimpleName();
     // 语音识别对象
     private SpeechRecognizer mAsr;
     private Toast mToast;
     // 缓存
+   public static AsrDemo A;
     private SharedPreferences mSharedPreferences;
     // 本地语法文件
     private String mLocalGrammar = null;
@@ -45,10 +46,11 @@ public class AsrDemo extends Activity implements OnClickListener {
     private String mEngineType = null;
     // 语记安装助手类
     ApkInstaller mInstaller;
+
     @SuppressLint("ShowToast")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        A=this;
         setContentView(R.layout.isrdemo);
         ttsDemo = new TtsDemo();
         // 初始化识别对象
@@ -59,9 +61,10 @@ public class AsrDemo extends Activity implements OnClickListener {
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         mInstaller = new ApkInstaller(AsrDemo.this);
         init();
-        timer.schedule(timerTask, 1000);
+        timer.schedule(timerTask, 500);
     }
-//延迟一秒钟启动本地语法监听器，如果不延迟则会出错，原因未知
+
+    //延迟0.5秒启动本地语法监听器，如果不延迟则会出错，原因未知
     TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
@@ -120,21 +123,32 @@ public class AsrDemo extends Activity implements OnClickListener {
         switch (view.getId()) {
             // 开始识别
             case R.id.isr_recognize:
+
+                if (!isBeginRec) {
+                    voiceRecognition();
+                }
+                isBeginRec=true;
                 // 设置参数
-                if (!setParam()) {
-                    showTip("请先构建语法。");
-                    return;
-                }
-                ret = mAsr.startListening(mRecognizerListener);
-                if (ret != ErrorCode.SUCCESS) {
-                    if (ret == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
-                        //未安装则跳转到提示安装页面
-                        mInstaller.install();
-                    } else {
-                        showTip("识别失败,错误码: " + ret);
-                    }
-                }
+
                 break;
+        }
+    }
+
+    public void voiceRecognition() {
+        if (!setParam()) {
+            showTip("请先构建语法。");
+            return;
+        }
+
+
+        ret = mAsr.startListening(mRecognizerListener);
+        if (ret != ErrorCode.SUCCESS) {
+            if (ret == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
+                //未安装则跳转到提示安装页面
+                mInstaller.install();
+            } else {
+                showTip("识别失败,错误码: " + ret);
+            }
         }
     }
 
@@ -196,12 +210,55 @@ public class AsrDemo extends Activity implements OnClickListener {
                 // 显示
                 showTip("识别成功");
                 if (text.contains("open") && text.contains("airCondition")) {
-                    ttsDemo.speakVoice(AsrDemo.this, "打开空调");
-                } else {
-                    ttsDemo.speakVoice(AsrDemo.this, "好哒");
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，打开空调");
+                }
+                else if (text.contains("hello")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "你好，祝你有个好心情");
+                }
+                else if (text.contains("gender")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "关于我的性别我全听主人的，我一会男一会女");
+                }
+                else if (text.contains("name")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "我也不知道我叫什么名字，我就是个萌萌哒机器人");
+                }
+                else if (text.contains("age")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "机器人是没有年龄的，你不知道吗，你好笨啊");
+                }
+                else if (text.contains("fuck")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "我心情不好就会骂人，呵呵哒");
+                }
+                else if (text.contains("shutDown")) {
+                    if (ttsDemo != null) {
+                        ttsDemo.stopSpeaking();
+                    }
+                    mAsr.cancel();
+                    mAsr.destroy();
+                    finish();
+                }
+                else if (text.contains("power")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "尼玛，你这样对我，我会生气的");
+                }
+                else if (text.contains("close") && text.contains("airCondition")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，关闭空调");
+                } else if (text.contains("close") && text.contains("TV")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，关闭电视");
+                }
+                else if (text.contains("open") && text.contains("TV")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，打开电视");
+                }
+                else if (text.contains("open") && text.contains("light")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，现在就开灯");
+                }
+                else if (text.contains("close") && text.contains("light")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，正在关灯");
                 }
 
-                ((EditText) findViewById(R.id.isr_text)).setText(text);
+
+                else {
+                    ttsDemo.speakVoice(AsrDemo.this, "你说啥");
+                }
+
+//                ((EditText) findViewById(R.id.isr_text)).setText(text);
             } else {
                 Log.d(TAG, "recognizer result : null");
             }
@@ -210,18 +267,19 @@ public class AsrDemo extends Activity implements OnClickListener {
         @Override
         public void onEndOfSpeech() {
             // 此回调表示：检测到了语音的尾端点，已经进入识别过程，不再接受语音输入
-            showTip("结束说话");
+//            showTip("结束说话");
         }
 
         @Override
         public void onBeginOfSpeech() {
             // 此回调表示：sdk内部录音机已经准备好了，用户可以开始语音输入
-            showTip("开始说话");
+//            showTip("开始说话");
         }
 
         @Override
         public void onError(SpeechError error) {
-            showTip("onError Code：" + error.getErrorCode() + "无法识别你说了什么");
+//            showTip("onError Code：" + error.getErrorCode() + "无法识别你说了什么");
+            voiceRecognition();
         }
 
         @Override

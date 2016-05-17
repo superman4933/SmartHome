@@ -54,7 +54,7 @@ public class TtsDemo {
                 //未安装则跳转到提示安装页面
                 mInstaller.install();
             } else {
-                showTip("语音合成失败,错误码: " + code);
+                showTip("语音合成: " + code);
             }
         }
     }
@@ -88,7 +88,7 @@ public class TtsDemo {
 
         @Override
         public void onSpeakBegin() {
-            showTip("开始播放");
+            Log.d("speechDemo","开始播放");
         }
 
         @Override
@@ -116,7 +116,8 @@ public class TtsDemo {
         @Override
         public void onCompleted(SpeechError error) {
             if (error == null) {
-                showTip("播放完成");
+//                showTip("播放完成");
+AsrDemo.A.voiceRecognition();
             } else if (error != null) {
                 showTip(error.getPlainDescription(true));
             }
