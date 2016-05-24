@@ -33,7 +33,7 @@
 <controlTV>:<open><TV>|[<hold>]<TV><open>|<close><TV>|[<hold>]<TV><close>;
 <controlAir>:<open><airCondition>|[<hold>]<airCondition><open>|<close><airCondition>|[<hold>]<airCondition><close>;
 <controlLight>:<open><light>|[<hold>]<light><open>|<close><light>|[<hold>]<light><close>;
-<volControl>:<vol><volTurnDown>|<vol><volTurnUp>;
+<volControl>:[<vol>]<volTurnDown>|[<vol>]<volTurnUp>|[<hold>]<vol><close>|[<hold>]<vol><open>|<open><vol>;
 <tempControl>:<temperature><tempUp>|<temperature><tempDown>;
 <name1>:[<you>]<name>;
 <gender1>:[<you>]<gender>;
@@ -49,8 +49,8 @@
 <close>:关闭|关掉|关了|关|关一下;
 <tempUp>:高点|调高;
 <tempDown>:低点|调高;
-<volTurnUp>:重点;
-<volTurnDown>:轻点;
+<volTurnUp>:重点|重点|重一点|重一点|大点|大一点;
+<volTurnDown>:轻点|小点|小一点|轻一点;
 <hello>:你好;
 <fuck>:骂人|心情好吗;
 <power>:拔电源|电源拔了|电板拔了|电板;

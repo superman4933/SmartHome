@@ -1,2 +1,3 @@
 include ':speechDemo'
 include ':speechDemo2'
+include ':iYKDemo'

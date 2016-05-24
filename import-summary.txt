@@ -7,8 +7,8 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
-* default.properties
-* proguard.cfg
+* ic_launcher-web.png
+* proguard-project.txt
 
 Replaced Jars with Dependencies:
 --------------------------------
@@ -20,21 +20,18 @@ the .jar file in your project was of an older version than the
 dependency we picked, which could render the project not compileable.
 You can disable the jar replacement in the import wizard and try again:
 
-android-support-v4.jar => com.android.support:support-v4:18.+
+android-support-v4.jar => com.android.support:support-v4:19.+
 
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => speechDemo2\src\main\AndroidManifest.xml
-* assets\ => speechDemo2\src\main\assets\
-* libs\armeabi\libmsc.so => speechDemo2\src\main\jniLibs\armeabi\libmsc.so
-* libs\Msc.jar => speechDemo2\libs\Msc.jar
-* libs\Sunflower.jar => speechDemo2\libs\Sunflower.jar
-* lint.xml => speechDemo2\lint.xml
-* res\ => speechDemo2\src\main\res\
-* src\ => speechDemo2\src\main\java\
+* AndroidManifest.xml => iYKDemo\src\main\AndroidManifest.xml
+* assets\ => iYKDemo\src\main\assets
+* lint.xml => iYKDemo\lint.xml
+* res\ => iYKDemo\src\main\res\
+* src\ => iYKDemo\src\main\java\
 
 Missing Android Support Repository:
 -----------------------------------

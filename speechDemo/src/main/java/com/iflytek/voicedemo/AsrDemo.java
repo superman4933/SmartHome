@@ -3,13 +3,13 @@ package com.iflytek.voicedemo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.net.wifi.WifiConfiguration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.iflytek.cloud.ErrorCode;
@@ -28,8 +28,24 @@ import com.iflytek.sunflower.FlowerCollector;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 /*此类为一个语音交互的activity*/
 public class AsrDemo extends Activity implements OnClickListener {
+public static int isSend;
+    String turnTV = "f7 7f 01 01 01 02 0c 01 01 00 32 00 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fc 00 00 00 00 00 00 00 00 00 00 07 ff 80 1f fe 00 7f f0 01 ff e0 07 ff 80 1f fc 00 7f f0 00 00 00 07 ff 00 1f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f f8 00 ff e0 00 00 00 0f fe 00 3f f8 00 00 00 03 ff 80 0f fe 00 7f f8 00 00 00 07 ff 80 1f fe 00 7f f8 01 ff e0 00 00 00 1f fe 00 7f f8 00 00 00 07 ff 80 00 00 00 7f f0 01 ff c0 00 00 00 1f fc 00 00 00 01 ff c0 00 00 00 3f fc 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff c0 00 00 00 00 07 ff 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7b";
+    String volTurnUp = "f7 7f 01 01 01 02 0c 01 01 00 32 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff c0 0f fe 00 3f f8 00 ff e0 03 ff 80 0f fe 00 3f f8 00 00 00 03 ff 80 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 7f f0 00 00 00 07 ff 00 1f fc 00 00 00 01 ff c0 07 ff 00 00 00 00 ff f0 00 00 00 0f ff 00 3f fc 00 ff f0 03 ff c0 00 00 00 3f fc 00 ff f0 00 00 00 0f ff 00 3f f8 00 ff e0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 1f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7c";
+    String volTurnDown = "f7 7f 01 01 01 02 0c 01 01 00 32 7f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff c0 0f ff 00 3f fc 00 ff f0 03 ff 80 0f fe 00 3f f8 00 00 00 03 ff 80 0f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 7f f8 00 00 00 07 ff 00 1f fc 00 00 00 01 ff c0 00 00 00 1f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 ff f0 03 ff c0 0f ff 00 00 00 00 ff f0 03 ff c0 0f ff 00 3f fc 00 ff f0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 0f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff f0 00 00 00 00 01 ff e0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 3a";
+    String soundOFF = "f7 7f 01 01 01 02 0c 01 01 00 32 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff 80 0f fe 00 3f f8 01 ff e0 07 ff 80 1f fe 00 7f f8 00 00 00 07 ff c0 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fc 00 7f f0 00 00 00 07 ff 00 1f fc 00 ff f0 03 ff c0 0f ff 00 00 00 00 ff f0 03 ff c0 0f ff 00 3f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f f8 00 ff e0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 0f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff f0 00 00 00 00 01 ff c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f6";
+    String VolClose = "f7 7f 01 01 01 02 0c 01 01 00 32 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff 80 0f fe 00 3f f8 01 ff e0 07 ff 80 1f fe 00 7f f8 00 00 00 07 ff c0 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fc 00 7f f0 00 00 00 07 ff 00 1f fc 00 ff f0 03 ff c0 0f ff 00 00 00 00 ff f0 03 ff c0 0f ff 00 3f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f f8 00 ff e0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 0f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff f0 00 00 00 00 01 ff c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f6";
+
+
+    byte[] bTurnTv ;
+    byte[] bVolTurnUp ;
+    byte[] bVolTurnDown;
+    byte[] bSoundOFF ;
+    byte[] bVolClose ;
+
+    String PASSWORD = "79559249";
     boolean isBeginRec;
     TtsDemo ttsDemo;
     private static String TAG = AsrDemo.class.getSimpleName();
@@ -37,7 +53,7 @@ public class AsrDemo extends Activity implements OnClickListener {
     private SpeechRecognizer mAsr;
     private Toast mToast;
     // 缓存
-   public static AsrDemo A;
+    public static AsrDemo A;
     private SharedPreferences mSharedPreferences;
     // 本地语法文件
     private String mLocalGrammar = null;
@@ -46,22 +62,58 @@ public class AsrDemo extends Activity implements OnClickListener {
     private String mEngineType = null;
     // 语记安装助手类
     ApkInstaller mInstaller;
-
+    WifiAdmin wifiAdmin;
+    ConnetSendPacketThread connetSendPacketThread;
     @SuppressLint("ShowToast")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        A=this;
+        Log.d("oncreate", "oncreate方法开始运行");
+        A = this;
         setContentView(R.layout.isrdemo);
+        /*打开wifi*/
+        wifiAdmin = new WifiAdmin(this);
+        wifiAdmin.openWifi();
+        Log.d("oncreate", "创建wifiAdmin对象");
+//        扫描前检查是否连接了指定的wifi,未连接则进行wifi扫描，连接指定wifi
+
+        String nowSSID = wifiAdmin.getNowSSid();
+        Log.d("oncreate", "获取目前连接的ssid" + nowSSID);
+
+//        检查是否可以成功获取到发射器的无线热点，能获取则连接，不能则弹出提示
+        if (!nowSSID.contains("IYK")) {
+            wifiAdmin.startScan();
+            String IYKSSID = wifiAdmin.getIYKSSID();
+            if (IYKSSID != null) {
+                Log.d("oncreate", "执行IYKSSID不为空时指令");
+                WifiConfiguration wcg = wifiAdmin.CreateWifiInfo(wifiAdmin.getIYKSSID(), PASSWORD, 3);
+                wifiAdmin.addNetwork(wcg);
+            } else {
+                Toast.makeText(this, "无法检测到IYK设备", Toast.LENGTH_SHORT).show();
+                Log.d("oncreate", "执行IYKSSID为空时指令");
+            }
+        }
         ttsDemo = new TtsDemo();
+        Log.d("oncreate", "初始化语音合成对象");
         // 初始化识别对象
         mAsr = SpeechRecognizer.createRecognizer(AsrDemo.this, mInitListener);
+        Log.d("oncreate", "初始化识别对象");
         // 初始化语法、命令词
         mLocalGrammar = FucUtil.readFile(this, "call.bnf", "utf-8");
+        Log.d("oncreate", "初始化本地语法规则");
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
+        Log.d("oncreate", "初始化配置");
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         mInstaller = new ApkInstaller(AsrDemo.this);
         init();
+        Log.d("oncreate", "初始化本地引擎");
         timer.schedule(timerTask, 500);
+        connetSendPacketThread = new ConnetSendPacketThread(this);
+        connetSendPacketThread.start();
+         bTurnTv = connetSendPacketThread.parseCMD(turnTV);
+         bVolTurnUp = connetSendPacketThread.parseCMD(volTurnUp);
+         bVolTurnDown = connetSendPacketThread.parseCMD(volTurnDown);
+         bSoundOFF = connetSendPacketThread.parseCMD(soundOFF);
+        bVolClose=connetSendPacketThread.parseCMD(VolClose);
     }
 
     //延迟0.5秒启动本地语法监听器，如果不延迟则会出错，原因未知
@@ -69,6 +121,7 @@ public class AsrDemo extends Activity implements OnClickListener {
         @Override
         public void run() {
             buildGra();
+            Log.d("oncreate", "延迟0.5秒启动本地语法监听器");
         }
     };
     Timer timer = new Timer();
@@ -127,7 +180,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                 if (!isBeginRec) {
                     voiceRecognition();
                 }
-                isBeginRec=true;
+                isBeginRec = true;
                 // 设置参数
 
                 break;
@@ -211,50 +264,65 @@ public class AsrDemo extends Activity implements OnClickListener {
                 showTip("识别成功");
                 if (text.contains("open") && text.contains("airCondition")) {
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，打开空调");
-                }
-                else if (text.contains("hello")) {
+                } else if (text.contains("hello")) {
                     ttsDemo.speakVoice(AsrDemo.this, "你好，祝你有个好心情");
-                }
-                else if (text.contains("gender")) {
+                } else if (text.contains("gender")) {
                     ttsDemo.speakVoice(AsrDemo.this, "关于我的性别我全听主人的，我一会男一会女");
-                }
-                else if (text.contains("name")) {
+                } else if (text.contains("name")) {
                     ttsDemo.speakVoice(AsrDemo.this, "我也不知道我叫什么名字，我就是个萌萌哒机器人");
-                }
-                else if (text.contains("age")) {
+                } else if (text.contains("age")) {
                     ttsDemo.speakVoice(AsrDemo.this, "机器人是没有年龄的，你不知道吗，你好笨啊");
-                }
-                else if (text.contains("fuck")) {
+                } else if (text.contains("fuck")) {
                     ttsDemo.speakVoice(AsrDemo.this, "我心情不好就会骂人，呵呵哒");
-                }
-                else if (text.contains("shutDown")) {
+                } else if (text.contains("shutDown")) {
                     if (ttsDemo != null) {
                         ttsDemo.stopSpeaking();
                     }
                     mAsr.cancel();
                     mAsr.destroy();
                     finish();
-                }
-                else if (text.contains("power")) {
+                } else if (text.contains("power")) {
                     ttsDemo.speakVoice(AsrDemo.this, "尼玛，你这样对我，我会生气的");
-                }
-                else if (text.contains("close") && text.contains("airCondition")) {
+                } else if (text.contains("close") && text.contains("airCondition")) {
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，关闭空调");
                 } else if (text.contains("close") && text.contains("TV")) {
+                    connetSendPacketThread.sendCMD(bTurnTv);
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，关闭电视");
-                }
-                else if (text.contains("open") && text.contains("TV")) {
+                } else if (text.contains("open") && text.contains("TV")) {
+                    connetSendPacketThread.sendCMD(bTurnTv);
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，打开电视");
                 }
                 else if (text.contains("open") && text.contains("light")) {
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，现在就开灯");
                 }
-                else if (text.contains("close") && text.contains("light")) {
-                    ttsDemo.speakVoice(AsrDemo.this, "好哒，正在关灯");
+
+                else if (text.contains("vol") && text.contains("volTurnDown")) {
+                    connetSendPacketThread.sendCMD(bVolTurnDown);
+                    connetSendPacketThread.sendCMD(bVolTurnDown);
+                    connetSendPacketThread.sendCMD(bVolTurnDown);
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，减小音量");
+                }
+                else if (text.contains("vol") && text.contains("volTurnUp")) {
+                    connetSendPacketThread.sendCMD(bVolTurnUp);
+                    connetSendPacketThread.sendCMD(bVolTurnUp);
+
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，增大音量");
+                    connetSendPacketThread.sendCMD(bVolTurnUp);
+                }
+                else if (text.contains("vol") && text.contains("close")) {
+                    connetSendPacketThread.sendCMD(bVolClose);
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，关闭声音");
+                }
+                else if (text.contains("vol") && text.contains("open")) {
+                    connetSendPacketThread.sendCMD(bVolClose);
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，打开声音");
                 }
 
 
-                else {
+
+                else if (text.contains("close") && text.contains("light")) {
+                    ttsDemo.speakVoice(AsrDemo.this, "好哒，正在关灯");
+                } else {
                     ttsDemo.speakVoice(AsrDemo.this, "你说啥");
                 }
 
@@ -349,8 +417,16 @@ public class AsrDemo extends Activity implements OnClickListener {
         if (ttsDemo != null) {
             ttsDemo.stopSpeaking();
         }
-        mAsr.cancel();
-        mAsr.destroy();
+        if (mAsr != null) {
+            mAsr.cancel();
+            mAsr.destroy();
+        }
+        if (connetSendPacketThread.UDPSocket!=null){
+        connetSendPacketThread.UDPSocket.close();}
+//        if (connetSendPacketThread.wifiLock != null) {
+//            connetSendPacketThread.wifiLock.release();
+//        }
+
     }
 
     @Override

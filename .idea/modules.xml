@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SmartHomeSystem.iml" filepath="$PROJECT_DIR$/SmartHomeSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iYKDemo/iYKDemo.iml" filepath="$PROJECT_DIR$/iYKDemo/iYKDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/speechDemo/speechDemo.iml" filepath="$PROJECT_DIR$/speechDemo/speechDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/speechDemo2/speechDemo2.iml" filepath="$PROJECT_DIR$/speechDemo2/speechDemo2.iml" />
     </modules>
