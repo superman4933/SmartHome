@@ -37,13 +37,16 @@ public static int isSend;
     String volTurnDown = "f7 7f 01 01 01 02 0c 01 01 00 32 7f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff c0 0f ff 00 3f fc 00 ff f0 03 ff 80 0f fe 00 3f f8 00 00 00 03 ff 80 0f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 7f f8 00 00 00 07 ff 00 1f fc 00 00 00 01 ff c0 00 00 00 1f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 ff f0 03 ff c0 0f ff 00 00 00 00 ff f0 03 ff c0 0f ff 00 3f fc 00 ff f0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 0f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff f0 00 00 00 00 01 ff e0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 3a";
     String soundOFF = "f7 7f 01 01 01 02 0c 01 01 00 32 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff 80 0f fe 00 3f f8 01 ff e0 07 ff 80 1f fe 00 7f f8 00 00 00 07 ff c0 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fc 00 7f f0 00 00 00 07 ff 00 1f fc 00 ff f0 03 ff c0 0f ff 00 00 00 00 ff f0 03 ff c0 0f ff 00 3f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f f8 00 ff e0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 0f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff f0 00 00 00 00 01 ff c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f6";
     String VolClose = "f7 7f 01 01 01 02 0c 01 01 00 32 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff 80 0f fe 00 3f f8 01 ff e0 07 ff 80 1f fe 00 7f f8 00 00 00 07 ff c0 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fc 00 7f f0 00 00 00 07 ff 00 1f fc 00 ff f0 03 ff c0 0f ff 00 00 00 00 ff f0 03 ff c0 0f ff 00 3f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f f8 00 ff e0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 0f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff f0 00 00 00 00 01 ff c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f6";
-
+    String OPEN_LIGHT="f7 7f 01 01 01 00 19 01 01 00 0d 0f 01 01 0f 01 0f 0f 0f 01 00 00 00 21 12";
+    String CLOSE_LIGHT="f7 7f 01 01 01 00 19 01 01 00 0d 0f 01 01 0f 01 0f 0f 0f 00 00 00 01 21 12";
 
     byte[] bTurnTv ;
     byte[] bVolTurnUp ;
     byte[] bVolTurnDown;
     byte[] bSoundOFF ;
     byte[] bVolClose ;
+    byte[] openLight;
+    byte[] closeLight;
 
     String PASSWORD = "79559249";
     boolean isBeginRec;
@@ -114,6 +117,9 @@ public static int isSend;
          bVolTurnDown = connetSendPacketThread.parseCMD(volTurnDown);
          bSoundOFF = connetSendPacketThread.parseCMD(soundOFF);
         bVolClose=connetSendPacketThread.parseCMD(VolClose);
+        openLight=connetSendPacketThread.parseCMD(OPEN_LIGHT);
+        closeLight=connetSendPacketThread.parseCMD(CLOSE_LIGHT);
+
     }
 
     //延迟0.5秒启动本地语法监听器，如果不延迟则会出错，原因未知
@@ -293,6 +299,7 @@ public static int isSend;
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，打开电视");
                 }
                 else if (text.contains("open") && text.contains("light")) {
+                    connetSendPacketThread.sendCMD(openLight);
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，现在就开灯");
                 }
 
@@ -321,6 +328,7 @@ public static int isSend;
 
 
                 else if (text.contains("close") && text.contains("light")) {
+                    connetSendPacketThread.sendCMD(closeLight);
                     ttsDemo.speakVoice(AsrDemo.this, "好哒，正在关灯");
                 } else {
                     ttsDemo.speakVoice(AsrDemo.this, "你说啥");

@@ -537,6 +537,7 @@ String in;
                             }
 
                             Log.d("UDPPacket_send", stringBuffer.toString());
+                            Log.d("UDPPacket_send", "发送长度："+sendLen);
                         }
                         Log.i(TAG, "sendUdpData成功");
                         UDPSendPacket = null;
