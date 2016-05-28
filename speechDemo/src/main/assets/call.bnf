@@ -1,5 +1,6 @@
 #BNF+IAT 1.0 UTF-8;
 !grammar call;//定义语法名称
+
 !slot <TV>;//被控制的物体和物体的某种属性
 !slot <airCondition>;
 !slot <light>;
@@ -16,19 +17,26 @@
 !slot <gender>;
 !slot <you>;
 !slot <today>;
+!slot <sleep>;
+!slot <start>;
+!slot <mode>;
 
 
 //以下是想要让物体达到的状态
+
 !slot <close>;
 !slot <tempUp>;
 !slot <tempDown>;
 !slot <volTurnUp>;
 !slot <volTurnDown>;
+!slot <shutUp>;
 
 !start <smartHome>;//定义开始规则,下面一行为规则的具体内容
 
 //主规则，系统只认主规则
-<smartHome>:<controlTV>|<controlAir>|<controlLight>|<volControl>|<tempControl>|<hello>|<fuck>|<power>|<shutDown>|<name1>|<age>|<gender1>|<feeling>;
+<smartHome>:<controlTV>|<controlAir>|<controlLight>|<volControl>|<tempControl>|<hello>|<fuck>|<power>|<shutDown>|<name1>|<age>|<gender1>|<feeling>|<sleepMode>|<closeSleep>;
+
+
 //被引用的子规则，注意变量命名不能超过15个字符
 <controlTV>:<open><TV>|[<hold>]<TV><open>|<close><TV>|[<hold>]<TV><close>;
 <controlAir>:<open><airCondition>|[<hold>]<airCondition><open>|<close><airCondition>|[<hold>]<airCondition><close>;
@@ -38,6 +46,9 @@
 <name1>:[<you>]<name>;
 <gender1>:[<you>]<gender>;
 <feeling>:[<you>][<today>]<fuck>;
+<sleepMode>:<start><sleep>[<mode>]|<shutUp>;
+<closeSleep>:<close><sleep>[<mode>];
+
 //为声明过的槽，定义具体的名称
 <TV>:电视|电视机;
 <airCondition>:空调;
@@ -60,3 +71,7 @@
 <gender>:是男是女|性别|你是女孩子;
 <you>:你叫|你的|你;
 <today>:今天;
+<sleep>:睡眠|休眠;
+<start>:启动|开启;
+<mode>:模式;
+<shutUp>:闭嘴;

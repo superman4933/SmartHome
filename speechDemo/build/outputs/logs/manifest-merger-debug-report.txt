@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:2:1-56:12
+ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:2:1-55:12
 	xmlns:android
 		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -94,23 +94,19 @@ uses-permission#android.permission.READ_PHONE_STATE
 ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:49:5-75
 	android:name
 		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:49:22-72
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:50:5-79
-	android:name
-		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:50:22-76
 uses-permission#android.permission.READ_CONTACTS
-ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:51:5-72
+ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:50:5-72
 	android:name
-		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:51:22-69
+		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:50:22-69
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:52:5-81
+ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:51:5-81
 	android:name
-		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:52:22-78
+		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:51:22-78
 uses-permission#android.permission.WRITE_SETTINGS
-ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:53:2-70
+ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:52:2-70
 	android:name
-		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:53:19-67
+		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:52:19-67
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:54:2-77
+ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:53:2-77
 	android:name
-		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:54:19-74
+		ADDED from D:\AndroidProject\SmartHomeSystem\speechDemo\src\main\AndroidManifest.xml:53:19-74

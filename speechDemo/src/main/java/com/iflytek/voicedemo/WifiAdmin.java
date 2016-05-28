@@ -1,7 +1,6 @@
 package com.iflytek.voicedemo;
 
 import android.content.Context;
-import android.net.DhcpInfo;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
@@ -20,8 +19,6 @@ public class WifiAdmin {
     private List<ScanResult> mWifiList = null;
     private List<WifiConfiguration> mWifiConfiguration;
     private WifiLock mWifiLock;
-    private DhcpInfo dhcpInfo;
- 
     public WifiAdmin(Context context) {
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         mWifiInfo = mWifiManager.getConnectionInfo();
@@ -34,14 +31,12 @@ public class WifiAdmin {
         if (!mWifiManager.isWifiEnabled()) {
             Log.i(TAG, "setWifiEnabled.....");
             mWifiManager.setWifiEnabled(true);
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
             Log.i(TAG, "setWifiEnabled.....end");
         }
         return mWifiManager.isWifiEnabled();
@@ -141,10 +136,7 @@ public class WifiAdmin {
         return null;
     }
 
-    public DhcpInfo getDhcpInfo() {
-        return dhcpInfo = mWifiManager.getDhcpInfo();
-    }
- 
+
     public int getIPAddress() {
         return (mWifiInfo == null) ? 0 : mWifiInfo.getIpAddress();
     }

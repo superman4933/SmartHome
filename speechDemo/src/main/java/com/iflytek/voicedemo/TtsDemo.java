@@ -115,11 +115,14 @@ public class TtsDemo {
 
         @Override
         public void onCompleted(SpeechError error) {
+            Log.d("oncompleted","音频播放完成");
             if (error == null) {
-//                showTip("播放完成");
+//             语音播放完成后自动进入语音监听状态
 AsrDemo.A.voiceRecognition();
+                Log.d("oncompleted","开启语音识别方法");
             } else if (error != null) {
                 showTip(error.getPlainDescription(true));
+                Log.d("oncompleted","发生错误，无法开启语音识别方法");
             }
         }
 
