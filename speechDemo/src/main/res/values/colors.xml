@@ -2,6 +2,7 @@
 
 <resources>
     <!-- 画面背景色 -->
+    <color name="rippelColor">#0099CC</color>
     <drawable name="layout_backgroud">#000000</drawable>
     
     <!-- 分割线背景色 -->

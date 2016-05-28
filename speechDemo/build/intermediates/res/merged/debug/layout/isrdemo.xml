@@ -7,13 +7,14 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="语音识别模块"
-            android:textSize="30sp" />
+    android:paddingRight="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="语音识别模块"
+        android:textSize="30sp" />
 
 
     <EditText
@@ -23,17 +24,13 @@
         android:layout_weight="1"
         android:gravity="top|left"
         android:textSize="20sp" />
-        <Button
-            android:id="@+id/isr_recognize"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="开始识别"
-            android:textSize="20sp" />
-    Button
-        android:id="@+id/isr_button"
+
+    <Button
+        android:id="@+id/isr_recognize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="构建语法"
+        android:text="开始识别"
         android:textSize="20sp" />
+
 
 </LinearLayout>

@@ -1,17 +1,21 @@
 package com.iflytek.voicedemo;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.net.wifi.WifiConfiguration;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.Toast;
 
 import com.iflytek.cloud.ErrorCode;
@@ -23,12 +27,13 @@ import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechUtility;
-import com.iflytek.speech.aidl.ISpeechRecognizer;
 import com.iflytek.speech.util.ApkInstaller;
 import com.iflytek.speech.util.FucUtil;
 import com.iflytek.speech.util.JsonParser;
+import com.iflytek.speech.util.RippleBackground;
 import com.iflytek.sunflower.FlowerCollector;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -72,12 +77,19 @@ public class AsrDemo extends Activity implements OnClickListener {
     WifiAdmin wifiAdmin;
     ConnetSendPacketThread connetSendPacketThread;
 
+    RippleBackground rippleBackground;
+    Handler handler;
     @SuppressLint("ShowToast")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("oncreate", "oncreate方法开始运行");
         A = this;//一个静态Activity变量，把对象传递到语音合成类那里
-        setContentView(R.layout.isrdemo);
+        setContentView(R.layout.isrdemo1);
+//        动画效果
+    rippleBackground=(RippleBackground)findViewById(R.id.content);
+    handler=new Handler();
+
+
         /*打开wifi*/
         wifiAdmin = new WifiAdmin(this);
         wifiAdmin.openWifi();
@@ -195,9 +207,31 @@ public class AsrDemo extends Activity implements OnClickListener {
                 AlphaAnimation aa = new AlphaAnimation(0, 1);
                 aa.setDuration(1000);
                 view.startAnimation(aa);
+                rippleBackground.startRippleAnimation();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        rippleAnimation();
+                    }
+                },3000);
                 break;
         }
     }
+
+    private void rippleAnimation(){
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setDuration(400);
+        animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        ArrayList<Animator> animatorList=new ArrayList<Animator>();
+//        ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(isr_recognize, "ScaleX", 0f, 1.2f, 1f);
+//        animatorList.add(scaleXAnimator);
+//        ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(foundDevice, "ScaleY", 0f, 1.2f, 1f);
+//        animatorList.add(scaleYAnimator);
+        animatorSet.playTogether(animatorList);
+        animatorSet.start();
+
+    }
+
 
     public void voiceRecognition() {
         if (!setParam()) {

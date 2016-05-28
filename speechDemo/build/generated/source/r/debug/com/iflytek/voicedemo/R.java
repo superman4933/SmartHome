@@ -29,19 +29,86 @@ public final class R {
         public static final int voicer_cloud_values=0x7f050011;
     }
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rb_color=0x7f010000;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rb_duration=0x7f010003;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rb_radius=0x7f010002;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rb_rippleAmount=0x7f010004;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rb_scale=0x7f010005;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rb_strokeWidth=0x7f010001;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>fillRipple</code></td><td>0</td><td></td></tr>
+<tr><td><code>strokeRipple</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int rb_type=0x7f010006;
     }
     public static final class color {
         public static final int content_color=0x7f060000;
         public static final int list_backgroud_color=0x7f060001;
-        public static final int title_color=0x7f060002;
-        public static final int white=0x7f060003;
+        public static final int rippelColor=0x7f060002;
+        public static final int title_color=0x7f060003;
+        public static final int white=0x7f060004;
     }
     public static final class dimen {
         public static final int btn_size=0x7f070000;
         public static final int line_height=0x7f070001;
         public static final int margin_=0x7f070002;
         public static final int pading_=0x7f070003;
-        public static final int txt_size=0x7f070004;
+        public static final int rippleRadius=0x7f070004;
+        public static final int rippleStrokeWidth=0x7f070005;
+        public static final int txt_size=0x7f070006;
     }
     public static final class drawable {
         public static final int icon=0x7f020000;
@@ -53,14 +120,18 @@ public final class R {
         public static final int setting_p=0x7f020004;
     }
     public static final class id {
-        public static final int isr_recognize=0x7f0a0001;
-        public static final int isr_text=0x7f0a0000;
-        public static final int tts_rediogroup=0x7f0a0003;
-        public static final int tts_text=0x7f0a0002;
+        public static final int content=0x7f0a0004;
+        public static final int fillRipple=0x7f0a0000;
+        public static final int isr_recognize=0x7f0a0003;
+        public static final int isr_text=0x7f0a0002;
+        public static final int strokeRipple=0x7f0a0001;
+        public static final int tts_rediogroup=0x7f0a0006;
+        public static final int tts_text=0x7f0a0005;
     }
     public static final class layout {
         public static final int isrdemo=0x7f030000;
-        public static final int ttsdemo=0x7f030001;
+        public static final int isrdemo1=0x7f030001;
+        public static final int ttsdemo=0x7f030002;
     }
     public static final class string {
         public static final int app_id=0x7f080000;
@@ -92,4 +163,138 @@ public final class R {
     public static final class xml {
         public static final int tts_setting=0x7f040000;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a RippleBackground.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #RippleBackground_rb_color com.iflytek.voicedemo:rb_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleBackground_rb_duration com.iflytek.voicedemo:rb_duration}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleBackground_rb_radius com.iflytek.voicedemo:rb_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleBackground_rb_rippleAmount com.iflytek.voicedemo:rb_rippleAmount}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleBackground_rb_scale com.iflytek.voicedemo:rb_scale}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleBackground_rb_strokeWidth com.iflytek.voicedemo:rb_strokeWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleBackground_rb_type com.iflytek.voicedemo:rb_type}</code></td><td></td></tr>
+           </table>
+           @see #RippleBackground_rb_color
+           @see #RippleBackground_rb_duration
+           @see #RippleBackground_rb_radius
+           @see #RippleBackground_rb_rippleAmount
+           @see #RippleBackground_rb_scale
+           @see #RippleBackground_rb_strokeWidth
+           @see #RippleBackground_rb_type
+         */
+        public static final int[] RippleBackground = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.iflytek.voicedemo.R.attr#rb_color}
+          attribute's value can be found in the {@link #RippleBackground} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.iflytek.voicedemo:rb_color
+        */
+        public static final int RippleBackground_rb_color = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.iflytek.voicedemo.R.attr#rb_duration}
+          attribute's value can be found in the {@link #RippleBackground} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.iflytek.voicedemo:rb_duration
+        */
+        public static final int RippleBackground_rb_duration = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.iflytek.voicedemo.R.attr#rb_radius}
+          attribute's value can be found in the {@link #RippleBackground} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.iflytek.voicedemo:rb_radius
+        */
+        public static final int RippleBackground_rb_radius = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.iflytek.voicedemo.R.attr#rb_rippleAmount}
+          attribute's value can be found in the {@link #RippleBackground} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.iflytek.voicedemo:rb_rippleAmount
+        */
+        public static final int RippleBackground_rb_rippleAmount = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.iflytek.voicedemo.R.attr#rb_scale}
+          attribute's value can be found in the {@link #RippleBackground} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.iflytek.voicedemo:rb_scale
+        */
+        public static final int RippleBackground_rb_scale = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.iflytek.voicedemo.R.attr#rb_strokeWidth}
+          attribute's value can be found in the {@link #RippleBackground} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.iflytek.voicedemo:rb_strokeWidth
+        */
+        public static final int RippleBackground_rb_strokeWidth = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.iflytek.voicedemo.R.attr#rb_type}
+          attribute's value can be found in the {@link #RippleBackground} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>fillRipple</code></td><td>0</td><td></td></tr>
+<tr><td><code>strokeRipple</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.iflytek.voicedemo:rb_type
+        */
+        public static final int RippleBackground_rb_type = 6;
+    };
 }
