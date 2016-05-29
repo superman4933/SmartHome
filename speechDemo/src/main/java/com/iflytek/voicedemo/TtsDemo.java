@@ -54,7 +54,7 @@ public class TtsDemo {
                 //未安装则跳转到提示安装页面
                 mInstaller.install();
             } else {
-                showTip("语音合成: " + code);
+//                showTip("语音合成: " + code);
             }
         }
     }

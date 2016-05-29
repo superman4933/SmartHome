@@ -4,15 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/content"
+    android:background="#F0FFF0"
     app:rb_color="#0099CC"
     app:rb_radius="32dp"
-    app:rb_rippleAmount="6"
-    app:rb_duration="3000"
+    app:rb_duration="4000"
     app:rb_scale="6">
-    <Button
-        android:text="开始"
+    <ImageView
+        android:layout_centerInParent="true"
         android:id="@+id/isr_recognize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:src="@drawable/phone1"
+        android:layout_width="64dp"
+        android:layout_height="64dp" />
+
 
 </com.iflytek.speech.util.RippleBackground>

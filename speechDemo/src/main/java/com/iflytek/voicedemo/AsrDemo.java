@@ -2,7 +2,6 @@ package com.iflytek.voicedemo;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -15,7 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iflytek.cloud.ErrorCode;
@@ -39,6 +39,11 @@ import java.util.TimerTask;
 
 /*此类为一个语音交互的activity*/
 public class AsrDemo extends Activity implements OnClickListener {
+
+   int volState;
+    View toastRoot;
+    TextView tv;
+
     /*发射命令原始码*/
     String TURN_TV = "f7 7f 01 01 01 02 0c 01 01 00 32 00 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fc 00 00 00 00 00 00 00 00 00 00 07 ff 80 1f fe 00 7f f0 01 ff e0 07 ff 80 1f fc 00 7f f0 00 00 00 07 ff 00 1f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f f8 00 ff e0 00 00 00 0f fe 00 3f f8 00 00 00 03 ff 80 0f fe 00 7f f8 00 00 00 07 ff 80 1f fe 00 7f f8 01 ff e0 00 00 00 1f fe 00 7f f8 00 00 00 07 ff 80 00 00 00 7f f0 01 ff c0 00 00 00 1f fc 00 00 00 01 ff c0 00 00 00 3f fc 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff c0 00 00 00 00 07 ff 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7b";
     String VOL_TURN_UP = "f7 7f 01 01 01 02 0c 01 01 00 32 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff c0 0f fe 00 3f f8 00 ff e0 03 ff 80 0f fe 00 3f f8 00 00 00 03 ff 80 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 7f f0 00 00 00 07 ff 00 1f fc 00 00 00 01 ff c0 07 ff 00 00 00 00 ff f0 00 00 00 0f ff 00 3f fc 00 ff f0 03 ff c0 00 00 00 3f fc 00 ff f0 00 00 00 0f ff 00 3f f8 00 ff e0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 1f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7c";
@@ -56,6 +61,7 @@ public class AsrDemo extends Activity implements OnClickListener {
     byte[] bVolClose;
     byte[] bopenLight;
     byte[] bcloseLight;
+    ImageView beginButton;
     private boolean isSleepMode;
     String PASSWORD = "79559249";
     boolean isBeginRec;
@@ -84,9 +90,22 @@ public class AsrDemo extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         Log.d("oncreate", "oncreate方法开始运行");
         A = this;//一个静态Activity变量，把对象传递到语音合成类那里
+
+
         setContentView(R.layout.isrdemo1);
+
+        toastRoot = getLayoutInflater().inflate(R.layout.my_toast, null);
+        mToast=new Toast(AsrDemo.this);
+        mToast.setView(toastRoot);
+        mToast.setDuration(Toast.LENGTH_SHORT);
+      tv=(TextView)toastRoot.findViewById(R.id.TextViewInfo);
+
+
+
+        beginButton=(ImageView) findViewById(R.id.isr_recognize);
 //        动画效果
     rippleBackground=(RippleBackground)findViewById(R.id.content);
+        rippleBackground.setRippleAmount(1);
     handler=new Handler();
 
 
@@ -120,7 +139,6 @@ public class AsrDemo extends Activity implements OnClickListener {
         Log.d("oncreate", "初始化本地语法规则");
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         Log.d("oncreate", "初始化配置");
-        mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         mInstaller = new ApkInstaller(AsrDemo.this);
         init();
         Log.d("oncreate", "初始化本地引擎");
@@ -150,7 +168,8 @@ public class AsrDemo extends Activity implements OnClickListener {
 
 
     private void init() {
-        findViewById(R.id.isr_recognize).setOnClickListener(AsrDemo.this);
+
+               beginButton .setOnClickListener(AsrDemo.this);
         mEngineType = SpeechConstant.TYPE_LOCAL;
         if (!SpeechUtility.getUtility().checkServiceInstalled()) {
             mInstaller.install();
@@ -164,7 +183,7 @@ public class AsrDemo extends Activity implements OnClickListener {
     int ret = 0;
 
     private void buildGra() {
-        showTip("上传预设关键词/语法文件");
+        showTip("创建成功");//创建语法文件
         Log.d("speech", "开始构建语法");
         if (mEngineType.equals(SpeechConstant.TYPE_LOCAL)) {
             mContent = new String(mLocalGrammar);
@@ -204,9 +223,8 @@ public class AsrDemo extends Activity implements OnClickListener {
                 }
                 isBeginRec = true;
                 // 设置参数
-                AlphaAnimation aa = new AlphaAnimation(0, 1);
-                aa.setDuration(1000);
-                view.startAnimation(aa);
+
+//                rippleBackground.setRippleAmount(8);
                 rippleBackground.startRippleAnimation();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -214,6 +232,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                         rippleAnimation();
                     }
                 },3000);
+
                 break;
         }
     }
@@ -223,10 +242,6 @@ public class AsrDemo extends Activity implements OnClickListener {
         animatorSet.setDuration(400);
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
         ArrayList<Animator> animatorList=new ArrayList<Animator>();
-//        ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(isr_recognize, "ScaleX", 0f, 1.2f, 1f);
-//        animatorList.add(scaleXAnimator);
-//        ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(foundDevice, "ScaleY", 0f, 1.2f, 1f);
-//        animatorList.add(scaleYAnimator);
         animatorSet.playTogether(animatorList);
         animatorSet.start();
 
@@ -277,7 +292,7 @@ public class AsrDemo extends Activity implements OnClickListener {
         public void onBuildFinish(String grammarId, SpeechError error) {
             Log.d("speech", "初始化本地语法监听器");
             if (error == null) {
-                showTip("语法构建成功：" + grammarId);
+                showTip("构建成功" );
             } else {
                 showTip("语法构建失败2,错误码：" + error.getErrorCode());
             }
@@ -291,7 +306,14 @@ public class AsrDemo extends Activity implements OnClickListener {
 
         @Override
         public void onVolumeChanged(int volume, byte[] data) {
-            showTip("当前正在说话，音量大小：" + volume);
+            /**判断目前的声音状态，是否该重启波浪动画，0为小，1为大*/
+            if (rippleBackground.isRippleAnimationRunning()&&volState==0) {
+                volState=1;
+                rippleBackground.stopRippleAnimation();
+                rippleBackground.setRippleAmount(1);
+                rippleBackground.startRippleAnimation();
+            }
+            showTip("等待指令。。。");
             Log.d(TAG, "返回音频数据：" + data.length);
         }
 
@@ -309,7 +331,10 @@ public class AsrDemo extends Activity implements OnClickListener {
 //                    本地识别的解析方法
                     text = JsonParser.parseLocalGrammarResult(result.getResultString());
                 }
-
+                rippleBackground.stopRippleAnimation();
+                rippleBackground.setRippleAmount(6);
+                rippleBackground.startRippleAnimation();
+                volState=0;
                 /**  首先判断系统是否处于睡眠模式，处于此模式只有指定指令才能唤醒，避免噪音下的误识别,睡眠模式下要注意在这里就开启语音识别方法，因为无法
                  * 通过完成说话后调用完成说话方法来调用开启语音识别方法*/
                 if (isSleepMode == true) {
@@ -324,12 +349,12 @@ public class AsrDemo extends Activity implements OnClickListener {
                     if (text.contains("open") && text.contains("airCondition")) {
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，打开空调");
                     } else if (text.contains("hello")) {
-                        ttsDemo.speakVoice(AsrDemo.this, "你好，我是你的小苹果");
+                        ttsDemo.speakVoice(AsrDemo.this, "愚蠢的地球人，找我有什么事");
                     } else if ((text.contains("start") && text.contains("sleep")) || text.contains("shutUp")) {
                         ttsDemo.speakVoice(AsrDemo.this, "好的，我不说话了");
                         isSleepMode = true;
                     } else if (text.contains("gender")) {
-                        ttsDemo.speakVoice(AsrDemo.this, "关于我的性别我全听主人的，我一会男一会女");
+                        ttsDemo.speakVoice(AsrDemo.this, "关你屁事，机器人可攻可守，男女通吃，只有愚蠢的人类不知道");
                     } else if (text.contains("name")) {
                         ttsDemo.speakVoice(AsrDemo.this, "我也不知道我叫什么名字，我就是个萌萌哒机器人");
                     } else if (text.contains("age")) {
@@ -344,7 +369,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                         mAsr.destroy();
                         finish();
                     } else if (text.contains("power")) {
-                        ttsDemo.speakVoice(AsrDemo.this, "呃呃呃呃呃，好吧，你赢了，说吧想让我干嘛");
+                        ttsDemo.speakVoice(AsrDemo.this, "好吧，地球人，你赢了，说吧，想让我干什么");
                     } else if (text.contains("close") && text.contains("airCondition")) {
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，关闭空调");
                     } else if (text.contains("close") && text.contains("TV")) {
@@ -362,6 +387,9 @@ public class AsrDemo extends Activity implements OnClickListener {
                         connetSendPacketThread.sendCMD(bVolTurnDown);
                         connetSendPacketThread.sendCMD(bVolTurnDown);
                         connetSendPacketThread.sendCMD(bVolTurnDown);
+                        connetSendPacketThread.sendCMD(bVolTurnDown);
+                        connetSendPacketThread.sendCMD(bVolTurnDown);
+                        
                     } else if (text.contains("vol") && text.contains("volTurnUp")) {
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，增大音量");
                         connetSendPacketThread.sendCMD(bVolTurnUp);
@@ -433,8 +461,10 @@ public class AsrDemo extends Activity implements OnClickListener {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mToast.setText(str);
+
+                tv.setText(str);
                 mToast.show();
+
             }
         });
     }
@@ -493,6 +523,9 @@ public class AsrDemo extends Activity implements OnClickListener {
         if (connetSendPacketThread.sendHandlerThread != null) {
             connetSendPacketThread.sendHandlerThread.quit();
         }
+
+
+
 //        if (connetSendPacketThread.wifiLock != null) {
 //            connetSendPacketThread.wifiLock.release();
 //        }

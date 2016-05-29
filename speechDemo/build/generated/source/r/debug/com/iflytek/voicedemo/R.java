@@ -116,22 +116,24 @@ containing a value of this type.
         public static final int line_background=0x7f020006;
         public static final int list_bg_color=0x7f020001;
         public static final int main_setting_btn_np=0x7f020002;
-        public static final int setting=0x7f020003;
-        public static final int setting_p=0x7f020004;
+        public static final int my_border=0x7f020003;
+        public static final int phone1=0x7f020004;
     }
     public static final class id {
+        public static final int TextViewInfo=0x7f0a0005;
         public static final int content=0x7f0a0004;
         public static final int fillRipple=0x7f0a0000;
         public static final int isr_recognize=0x7f0a0003;
         public static final int isr_text=0x7f0a0002;
         public static final int strokeRipple=0x7f0a0001;
-        public static final int tts_rediogroup=0x7f0a0006;
-        public static final int tts_text=0x7f0a0005;
+        public static final int tts_rediogroup=0x7f0a0007;
+        public static final int tts_text=0x7f0a0006;
     }
     public static final class layout {
         public static final int isrdemo=0x7f030000;
         public static final int isrdemo1=0x7f030001;
-        public static final int ttsdemo=0x7f030002;
+        public static final int my_toast=0x7f030002;
+        public static final int ttsdemo=0x7f030003;
     }
     public static final class string {
         public static final int app_id=0x7f080000;

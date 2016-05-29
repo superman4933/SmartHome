@@ -17,12 +17,12 @@ import com.iflytek.voicedemo.R;
 import java.util.ArrayList;
 
 /**
- * Created by fyu on 11/3/14.
+ * 用于支持水波纹效果的一个类，自定义了一个布局
  */
 
 public class RippleBackground extends RelativeLayout{
 
-    private static final int DEFAULT_RIPPLE_COUNT=6;
+//    private static final int DEFAULT_RIPPLE_COUNT=6;
     private static final int DEFAULT_DURATION_TIME=3000;
     private static final float DEFAULT_SCALE=6.0f;
     private static final int DEFAULT_FILL_TYPE=0;
@@ -42,13 +42,18 @@ public class RippleBackground extends RelativeLayout{
     private LayoutParams rippleParams;
     private ArrayList<RippleView> rippleViewList=new ArrayList<RippleView>();
 
+    Context context;
+    AttributeSet attrs;
+
     public RippleBackground(Context context) {
         super(context);
     }
 
     public RippleBackground(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs);
+        this.context=context;
+        this.attrs=attrs;
+
     }
 
     public RippleBackground(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -56,6 +61,9 @@ public class RippleBackground extends RelativeLayout{
         init(context, attrs);
     }
 
+    public void setRippleAmount(int rippleAmount) {
+        this.rippleAmount=rippleAmount;
+    }
     private void init(final Context context, final AttributeSet attrs) {
         if (isInEditMode())
             return;
@@ -67,9 +75,9 @@ public class RippleBackground extends RelativeLayout{
         final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleBackground);
         rippleColor=typedArray.getColor(R.styleable.RippleBackground_rb_color, getResources().getColor(R.color.rippelColor));
         rippleStrokeWidth=typedArray.getDimension(R.styleable.RippleBackground_rb_strokeWidth, getResources().getDimension(R.dimen.rippleStrokeWidth));
-        rippleRadius=typedArray.getDimension(R.styleable.RippleBackground_rb_radius,getResources().getDimension(R.dimen.rippleRadius));
+        rippleRadius=64;
         rippleDurationTime=typedArray.getInt(R.styleable.RippleBackground_rb_duration,DEFAULT_DURATION_TIME);
-        rippleAmount=typedArray.getInt(R.styleable.RippleBackground_rb_rippleAmount,DEFAULT_RIPPLE_COUNT);
+//        rippleAmount=typedArray.getInt(R.styleable.RippleBackground_rb_rippleAmount,DEFAULT_RIPPLE_COUNT);
         rippleScale=typedArray.getFloat(R.styleable.RippleBackground_rb_scale,DEFAULT_SCALE);
         rippleType=typedArray.getInt(R.styleable.RippleBackground_rb_type,DEFAULT_FILL_TYPE);
         typedArray.recycle();
@@ -135,6 +143,7 @@ public class RippleBackground extends RelativeLayout{
 
     public void startRippleAnimation(){
         if(!isRippleAnimationRunning()){
+            init(this.context, this.attrs);
             for(RippleView rippleView:rippleViewList){
                 rippleView.setVisibility(VISIBLE);
             }
