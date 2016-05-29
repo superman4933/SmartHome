@@ -1,4 +1,4 @@
-CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\AsrDemo$4$override.class
 CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\AsrDemo$5$override.class
 CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\AsrDemo$6$override.class
 CHANGED,D:\AndroidProject\SmartHomeSystem\speechDemo\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\iflytek\voicedemo\AsrDemo$override.class

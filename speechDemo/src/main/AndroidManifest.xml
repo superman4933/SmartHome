@@ -14,7 +14,7 @@
     <application
         android:icon="@drawable/icon"
         android:name="SpeechApp"
-        android:label="智能家居V1.0" >
+        android:label="超人之家V1.0" >
 
         <activity
             android:name="com.iflytek.voicedemo.AsrDemo"

@@ -20,6 +20,13 @@
 !slot <sleep>;
 !slot <start>;
 !slot <mode>;
+!slot <playMusic>;
+!slot <nextSong>;
+!slot <preSong>;
+!slot <playVideo>;
+!slot <avPlayer>;
+!slot <openAV>;
+
 
 
 //以下是想要让物体达到的状态
@@ -34,13 +41,13 @@
 !start <smartHome>;//定义开始规则,下面一行为规则的具体内容
 
 //主规则，系统只认主规则
-<smartHome>:<controlTV>|<controlAir>|<controlLight>|<volControl>|<tempControl>|<hello>|<fuck>|<power>|<shutDown>|<name1>|<age>|<gender1>|<feeling>|<sleepMode>|<closeSleep>;
+<smartHome>:<controlTV>|<controlAir>|<controlLight>|<volControl>|<tempControl>|<hello>|<fuck>|<power>|<shutDown>|<name1>|<age>|<gender1>|<feeling>|<sleepMode>|<closeSleep>|<playMusic>|<nextSong>|<preSong>|<playVideo>|<avPlayer>|<openAV>;
 
 
 //被引用的子规则，注意变量命名不能超过15个字符
 <controlTV>:<open><TV>|[<hold>]<TV><open>|<close><TV>|[<hold>]<TV><close>;
 <controlAir>:<open><airCondition>|[<hold>]<airCondition><open>|<close><airCondition>|[<hold>]<airCondition><close>;
-<controlLight>:<open><light>|[<hold>]<light><open>|<close><light>|[<hold>]<light><close>;
+<controlLight>:<open><light>|<hold><light><open>|<close><light>|[<hold>]<light><close>;
 <volControl>:[<vol>]<volTurnDown>|[<vol>]<volTurnUp>|[<hold>]<vol><close>|[<hold>]<vol><open>|<open><vol>;
 <tempControl>:<temperature><tempUp>|<temperature><tempDown>;
 <name1>:[<you>]<name>;
@@ -75,3 +82,9 @@
 <start>:启动|开启;
 <mode>:模式;
 <shutUp>:闭嘴;
+<playMusic>:播放音乐|来点音乐|音乐暂停|暂停音乐|音乐;
+<nextSong>:下一首|下一曲|换首歌|切歌;
+<preSong>:刚才那首|上一首;
+<playVideo>:播放视频|播放暂停|继续播放|放电影|电影暂停|视频暂停;
+<avPlayer>:苍老师;
+<openAV>:作品给我看看;

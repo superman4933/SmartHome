@@ -40,7 +40,7 @@ import java.util.TimerTask;
 /*此类为一个语音交互的activity*/
 public class AsrDemo extends Activity implements OnClickListener {
 
-   int volState;
+    int volState;
     View toastRoot;
     TextView tv;
 
@@ -52,7 +52,13 @@ public class AsrDemo extends Activity implements OnClickListener {
     String VOL_CLOSE = "f7 7f 01 01 01 02 0c 01 01 00 32 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 03 ff 80 0f fe 00 3f f8 01 ff e0 07 ff 80 1f fe 00 7f f8 00 00 00 07 ff c0 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fe 00 00 00 01 ff e0 00 00 00 1f fc 00 7f f0 00 00 00 07 ff 00 1f fc 00 ff f0 03 ff c0 0f ff 00 00 00 00 ff f0 03 ff c0 0f ff 00 3f fc 00 00 00 03 ff c0 00 00 00 3f fc 00 00 00 03 ff c0 00 00 00 3f f8 00 ff e0 00 00 00 0f fe 00 00 00 00 ff e0 00 00 00 0f fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff f0 00 00 00 00 01 ff c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f6";
     String OPEN_LIGHT = "f7 7f 01 01 01 00 19 01 01 00 0d 0f 01 01 0f 01 0f 0f 0f 01 00 00 00 21 12";
     String CLOSE_LIGHT = "f7 7f 01 01 01 00 19 01 01 00 0d 0f 01 01 0f 01 0f 0f 0f 00 00 00 01 21 12";
-
+    String PLAY_MUSIC = "f7 7f 01 01 01 04 0c 01 01 00 09 f0 00 3f 00 03 f0 00 3f 00 00 00 00 3f 00 03 f0 00 00 00 03 e0 00 3e 00 03 e0 00 00 00 07 e0 00 00 00 07 c0 00 7c 00 07 e0 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 fc 00 00 00 00 fc 00 00 00 01 f8 00 00 00 01 f8 00 1f 80 01 f8 00 1f 80 00 00 00 1f 00 01 f0 00 00 00 03 f0 00 3f 00 03 f0 00 00 00 03 f0 00 00 00 03 e0 00 3e 00 03 e0 00 3e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 fc 00 00 00 00 f8 00 00 00 01 f8 00 00 00 01 f0 00 1f 00 01 f0 00 1f 00 00 00 00 3f 00 03 f0 00 00 00 03 f0 00 3e 00 03 e0 00 00 00 03 e0 00 00 00 07 c0 00 7e 00 07 e0 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f8 00 00 00 01 f8 00 00 00 01 f0 00 00 00 03 f0 00 3f 00 03 f0 00 3f 00 00 00 00 3e 00 03 e0 00 00 00 07 e0 00 7e 00 03 f0 00 00 00 07 e0 00 00 00 07 c0 00 7c 00 07 c0 00 7c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 52";
+    String NEXT_SONG = "f7 7f 01 01 01 04 0c 01 01 00 09 07 e0 00 7e 00 07 e0 00 7e 00 00 00 00 7c 00 07 e0 00 7e 00 07 e0 00 00 00 07 c0 00 7c 00 00 00 00 fc 00 0f c0 00 fc 00 0f c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f8 00 00 00 01 fc 00 00 00 01 f0 00 00 00 03 f0 00 3f 00 03 f0 00 3f 00 00 00 00 3e 00 03 e0 00 3e 00 03 f0 00 00 00 03 e0 00 3e 00 00 00 00 7e 00 07 e0 00 7e 00 07 e0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 f8 00 00 00 01 f0 00 00 00 03 f0 00 00 00 03 e0 00 3e 00 03 f0 00 3f 00 00 00 00 3e 00 03 e0 00 3e 00 03 e0 00 00 00 07 e0 00 7e 00 00 00 00 7e 00 07 e0 00 7e 00 07 e0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 f8 00 00 00 01 f0 00 00 00 03 f0 00 00 00 03 e0 00 3e 00 03 e0 00 3e 00 00 00 00 7e 00 03 e0 00 3e 00 03 e0 00 00 00 07 e0 00 7e 00 00 00 00 7c 00 07 c0 00 7c 00 07 c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 b4";
+    String PRE_SONG = "f7 7f 01 01 01 04 0c 01 01 00 09 f8 00 1f 80 01 f8 00 1f 80 00 00 00 1f 00 01 f0 00 1f 00 01 f8 00 00 00 03 f0 00 00 00 03 f0 00 00 00 03 e0 00 3e 00 03 e0 00 3e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7e 00 00 00 00 7c 00 00 00 00 fc 00 00 00 00 f8 00 0f 80 00 f8 00 0f 80 00 00 00 1f 80 00 f8 00 0f 80 00 f8 00 00 00 01 f8 00 00 00 01 f0 00 00 00 03 f0 00 3f 00 03 f0 00 1f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7c 00 00 00 00 fc 00 00 00 00 fc 00 00 00 00 f8 00 0f 80 00 f8 00 0f 80 00 00 00 1f 80 01 f8 00 1f 80 01 f8 00 00 00 01 f8 00 00 00 03 f0 00 00 00 03 f0 00 3f 00 03 f0 00 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7c 00 00 00 00 fc 00 00 00 00 f8 00 00 00 01 f8 00 1f 80 01 f8 00 1f 80 00 00 00 1f 00 01 f8 00 1f 80 01 f8 00 00 00 07 f0 00 00 00 03 f8 00 00 00 03 e0 00 3e 00 03 e0 00 3e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ea";
+    String PLAY_VIDEO = "f7 7f 01 01 01 02 0c 01 01 00 32 f0 00 3f 00 03 f0 00 00 00 03 e0 00 3e 00 00 00 00 7e 00 03 e0 00 3e 00 00 00 00 7e 00 07 e0 00 7e 00 07 e0 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 c0 00 00 00 0f c0 00 00 00 0f 80 00 00 00 1f 80 01 f8 00 1f 80 00 f8 00 00 00 01 f8 00 1f 80 00 00 00 1f 00 01 f0 00 1f 00 00 00 00 3f 00 03 f0 00 1f 00 01 f0 00 1f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 e0 00 00 00 07 c0 00 00 00 0f c0 00 00 00 0f 80 00 f8 00 0f c0 00 f8 00 00 00 01 f8 00 0f 80 00 00 00 1f 80 01 f8 00 1f 80 00 00 00 1f 00 01 f0 00 1f 80 01 f0 00 1f 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 e0 00 00 00 07 c0 00 00 00 07 c0 00 00 00 0f c0 00 fc 00 0f c0 00 fc 00 00 00 00 f8 00 0f c0 00 00 00 1f 80 00 f8 00 0f 80 00 00 00 1f 80 01 f8 00 1f 80 01 f8 00 1f 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f2";
+    String OPEN_AIR = "f7 7f 01 01 01 04 0c 01 01 00 09 ff ff ff ff ff ff ff ff ff ff fe 00 00 00 00 00 00 00 00 00 00 0f ff 00 00 00 03 ff c0 0f fe 00 00 00 03 ff c0 00 00 00 ff f0 03 ff 80 1f fc 00 00 00 07 ff 80 1f fc 01 ff e0 00 00 00 3f f8 01 ff c0 0f ff 00 00 00 03 ff c0 00 00 00 7f f0 03 ff 80 00 00 00 ff f0 07 ff 80 3f fc 00 ff e0 00 00 00 3f f8 00 00 00 0f ff 00 00 00 01 ff c0 00 00 00 7f f8 00 00 00 1f fe 00 00 00 03 ff 80 00 00 00 ff f0 00 00 00 3f fc 01 ff e0 07 ff 00 3f f8 01 ff e0 0f ff 00 00 00 03 ff c0 00 00 00 7f f0 03 ff c0 00 00 00 ff f0 07 ff 80 00 00 00 ff e0 07 ff 00 3f fc 01 ff e0 0f ff 00 00 00 01 ff c0 0f fe 00 00 00 03 ff c0 1f fe 00 00 00 03 ff 80 00 00 00 ff f0 00 00 00 00 00 00 00 00 00 00 00 00 7f ff ff ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 00 00 07 ff 80 00 00 00 ff e0 07 ff 00 00 00 01 ff e0 00 00 00 7f f8 01 ff c0 0f fe 00 00 00 03 ff c0 1f fe 00 ff f0 00 00 00 1f fc 00 ff e0 07 ff 80 00 00 01 ff e0 00 00 00 3f f8 01 ff c0 00 00 00 7f f8 03 ff c0 0f fe 00 7f f0 00 00 00 1f fe 00 00 00 07 ff 80 00 00 00 ff e0 00 00 00 3f fc 00 00 00 0f ff 00 00 00 01 ff c0 00 00 00 7f f8 00 00 00 1f fe 00 7f f0 03 ff 80 1f fc 00 ff f0 07 ff 80 00 00 00 ff e0 00 00 00 3f f8 01 ff e0 00 00 00 7f f8 01 ff c0 00 00 00 7f f0 03 ff c0 1f fe 00 ff f0 03 ff 80 00 00 00 ff e0 07 ff 80 00 00 01 ff e0 07 ff 00 00 00 01 ff c0 00 00 00 7f f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 4b";
+    String CLOSE_AIR = "f7 7f 01 01 01 04 0c 01 01 00 09 00 00 7f ff ff ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 00 00 07 ff 00 00 00 01 ff e0 07 ff 00 00 00 01 ff c0 00 00 00 7f f8 01 ff c0 0f fe 00 00 00 03 ff 80 1f fc 00 7f f0 00 00 00 3f fc 00 ff e0 07 ff 00 00 00 01 ff c0 00 00 00 7f f8 01 ff c0 00 00 00 7f f0 01 ff c0 00 00 00 ff f0 00 00 00 1f fc 00 00 00 07 ff 80 00 00 01 ff e0 07 ff 00 00 00 01 ff c0 00 00 00 7f f8 00 00 00 1f fe 00 7f f0 03 ff 80 1f fe 00 7f f0 00 00 00 3f fc 00 ff e0 07 ff 00 00 00 01 ff e0 00 00 00 7f f8 00 00 00 0f fe 00 7f f8 01 ff c0 0f fe 00 7f f0 03 ff 80 1f fc 00 ff f0 03 ff 80 00 00 01 ff e0 00 00 00 3f f8 00 00 00 0f ff 00 00 00 03 ff c0 00 00 00 7f f0 00 00 00 00 00 00 00 00 00 00 00 00 3f ff ff ff ff ff ff ff ff ff ff 80 00 00 00 00 00 00 00 00 00 03 ff c0 00 00 00 ff f0 03 ff 80 00 00 00 ff e0 00 00 00 3f fc 00 ff e0 07 ff 00 00 00 01 ff e0 07 fe 00 3f f8 00 00 00 0f fe 00 7f f0 03 ff 80 00 00 00 ff f0 00 00 00 1f fc 00 ff e0 00 00 00 3f fc 00 ff e0 00 00 00 7f f8 00 00 00 0f fe 00 00 00 03 ff c0 00 00 00 ff f0 03 ff 80 00 00 00 ff f0 00 00 00 3f fc 00 00 00 07 ff 00 3f f8 01 ff e0 07 ff 00 3f f8 00 00 00 0f fe 00 7f f0 03 ff 80 00 00 00 ff f0 00 00 00 1f fc 00 00 00 07 ff 80 1f fc 00 ff e0 07 ff 00 3f f8 01 ff c0 0f ff 00 3f f8 01 ff c0 00 00 00 7f f0 00 00 00 1f fe 00 00 00 07 ff 80 00 00 00 ff e0 00 00 00 3f f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f";
+String ALT_TAB="f7 7f 01 01 01 04 0c 01 01 00 09 01 f8 00 0f 80 00 f8 00 0f 80 00 00 00 1f 80 01 f8 00 00 00 01 f0 00 00 00 03 f0 00 00 00 03 e0 00 3f 00 00 00 00 3e 00 03 e0 00 3e 00 03 e0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 3e 00 00 00 00 7e 00 00 00 00 7c 00 00 00 00 fc 00 0f c0 00 7c 00 07 c0 00 00 00 0f c0 00 fc 00 00 00 00 f8 00 00 00 01 f8 00 00 00 01 f8 00 1f 00 00 00 00 1f 00 01 f0 00 1f 00 01 f0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 3f 00 00 00 00 7e 00 00 00 00 7e 00 00 00 00 7c 00 07 c0 00 7c 00 07 c0 00 00 00 0f c0 00 fc 00 00 00 00 fc 00 00 00 00 f8 00 00 00 01 f8 00 1f 80 00 00 00 1f 00 01 f0 00 1f 00 01 f0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 3f 00 00 00 00 3e 00 00 00 00 7e 00 00 00 00 7c 00 07 c0 00 7e 00 07 e0 00 00 00 07 c0 00 7c 00 00 00 00 fc 00 00 00 00 f8 00 00 00 01 f8 00 1f 80 00 00 00 1f 80 01 f0 00 1f 80 01 f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 90";
     /*发射命令的byte数组，设备只能识别这个格式的*/
     byte[] bTurnTv;
     byte[] bVolTurnUp;
@@ -61,6 +67,17 @@ public class AsrDemo extends Activity implements OnClickListener {
     byte[] bVolClose;
     byte[] bopenLight;
     byte[] bcloseLight;
+    byte[] bPLAY_MUSIC;
+    byte[] bNEXT_SONG ;
+    byte[] bPRE_SONG ;
+    byte[] bPLAY_VIDEO;
+    byte[] bOPEN_AIR ;
+    byte[] bCLOSE_AIR ;
+    byte[] bALT_TAB ;
+
+
+
+
     ImageView beginButton;
     private boolean isSleepMode;
     String PASSWORD = "79559249";
@@ -85,6 +102,7 @@ public class AsrDemo extends Activity implements OnClickListener {
 
     RippleBackground rippleBackground;
     Handler handler;
+
     @SuppressLint("ShowToast")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,18 +113,17 @@ public class AsrDemo extends Activity implements OnClickListener {
         setContentView(R.layout.isrdemo1);
 
         toastRoot = getLayoutInflater().inflate(R.layout.my_toast, null);
-        mToast=new Toast(AsrDemo.this);
+        mToast = new Toast(AsrDemo.this);
         mToast.setView(toastRoot);
         mToast.setDuration(Toast.LENGTH_SHORT);
-      tv=(TextView)toastRoot.findViewById(R.id.TextViewInfo);
+        tv = (TextView) toastRoot.findViewById(R.id.TextViewInfo);
 
 
-
-        beginButton=(ImageView) findViewById(R.id.isr_recognize);
+        beginButton = (ImageView) findViewById(R.id.isr_recognize);
 //        动画效果
-    rippleBackground=(RippleBackground)findViewById(R.id.content);
+        rippleBackground = (RippleBackground) findViewById(R.id.content);
         rippleBackground.setRippleAmount(1);
-    handler=new Handler();
+        handler = new Handler();
 
 
         /*打开wifi*/
@@ -142,7 +159,7 @@ public class AsrDemo extends Activity implements OnClickListener {
         mInstaller = new ApkInstaller(AsrDemo.this);
         init();
         Log.d("oncreate", "初始化本地引擎");
-        timer.schedule(timerTask, 800);
+        timer.schedule(timerTask, 1500);
 //        创建发送命令的线程对象（用handler控制），并把命令解析成byte数组
         connetSendPacketThread = new ConnetSendPacketThread(this);
 //        connetSendPacketThread.start();
@@ -153,7 +170,13 @@ public class AsrDemo extends Activity implements OnClickListener {
         bVolClose = connetSendPacketThread.parseCMD(VOL_CLOSE);
         bopenLight = connetSendPacketThread.parseCMD(OPEN_LIGHT);
         bcloseLight = connetSendPacketThread.parseCMD(CLOSE_LIGHT);
-
+        bPLAY_MUSIC=connetSendPacketThread.parseCMD(PLAY_MUSIC);
+        bNEXT_SONG =connetSendPacketThread.parseCMD(NEXT_SONG);
+        bPRE_SONG =connetSendPacketThread.parseCMD(PRE_SONG);
+        bPLAY_VIDEO=connetSendPacketThread.parseCMD(PLAY_VIDEO);
+        bOPEN_AIR =connetSendPacketThread.parseCMD(OPEN_AIR);
+        bCLOSE_AIR=connetSendPacketThread.parseCMD(CLOSE_AIR);
+        bALT_TAB=connetSendPacketThread.parseCMD(ALT_TAB);
     }
 
     //延迟0.5秒启动本地语法监听器，如果不延迟则会出错，原因未知
@@ -169,7 +192,7 @@ public class AsrDemo extends Activity implements OnClickListener {
 
     private void init() {
 
-               beginButton .setOnClickListener(AsrDemo.this);
+        beginButton.setOnClickListener(AsrDemo.this);
         mEngineType = SpeechConstant.TYPE_LOCAL;
         if (!SpeechUtility.getUtility().checkServiceInstalled()) {
             mInstaller.install();
@@ -184,28 +207,30 @@ public class AsrDemo extends Activity implements OnClickListener {
 
     private void buildGra() {
         showTip("创建成功");//创建语法文件
-        Log.d("speech", "开始构建语法");
+        Log.d("oncreate", "开始构建语法1");
         if (mEngineType.equals(SpeechConstant.TYPE_LOCAL)) {
             mContent = new String(mLocalGrammar);
             mAsr.setParameter(SpeechConstant.TEXT_ENCODING, "utf-8");
             //指定引擎类型
             mAsr.setParameter(SpeechConstant.ENGINE_TYPE, mEngineType);
-            Log.d("speech", "开始构建语法2");
+            Log.d("oncreate", "开始构建语法2");
             ret = mAsr.buildGrammar(GRAMMAR_TYPE_BNF, mContent, mLocalGrammarListener);
             if (mLocalGrammarListener == null) {
-                Log.d("speech", "mLocalGrammarListener为空");
+                Log.d("oncreate", "mLocalGrammarListener为空");
             }
-            Log.d("speech", "开始构建语法3");
+            Log.d("oncreate", "开始构建语法3");
             if (ret != ErrorCode.SUCCESS) {
                 if (ret == ErrorCode.ERROR_COMPONENT_NOT_INSTALLED) {
                     //未安装则跳转到提示安装页面
                     mInstaller.install();
                 } else {
+                    Log.d("oncreate", "语法构建失败" + ret);
                     showTip("语法构建失败1,错误码：" + ret);
                 }
             }
         }
         Log.d("speech", "开始构建语法4");
+        showTip("创建成功");//创建语法文件
     }
 
     @Override
@@ -231,17 +256,17 @@ public class AsrDemo extends Activity implements OnClickListener {
                     public void run() {
                         rippleAnimation();
                     }
-                },3000);
+                }, 3000);
 
                 break;
         }
     }
 
-    private void rippleAnimation(){
+    private void rippleAnimation() {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setDuration(400);
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        ArrayList<Animator> animatorList=new ArrayList<Animator>();
+        ArrayList<Animator> animatorList = new ArrayList<Animator>();
         animatorSet.playTogether(animatorList);
         animatorSet.start();
 
@@ -287,14 +312,17 @@ public class AsrDemo extends Activity implements OnClickListener {
      * 本地构建语法监听器。
      */
     private GrammarListener mLocalGrammarListener = new GrammarListener() {
+
         @Override
 
         public void onBuildFinish(String grammarId, SpeechError error) {
-            Log.d("speech", "初始化本地语法监听器");
+            Log.d("oncreate", "初始化本地语法监听器");
             if (error == null) {
-                showTip("构建成功" );
+                showTip("构建成功");
+                Log.d("oncreate", "初始化本地语法监听器成功");
             } else {
                 showTip("语法构建失败2,错误码：" + error.getErrorCode());
+                Log.d("oncreate", "初始化本地语法监听器失败" + error.getErrorCode());
             }
         }
     };
@@ -307,8 +335,8 @@ public class AsrDemo extends Activity implements OnClickListener {
         @Override
         public void onVolumeChanged(int volume, byte[] data) {
             /**判断目前的声音状态，是否该重启波浪动画，0为小，1为大*/
-            if (rippleBackground.isRippleAnimationRunning()&&volState==0) {
-                volState=1;
+            if (rippleBackground.isRippleAnimationRunning() && volState == 0) {
+                volState = 1;
                 rippleBackground.stopRippleAnimation();
                 rippleBackground.setRippleAmount(1);
                 rippleBackground.startRippleAnimation();
@@ -334,7 +362,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                 rippleBackground.stopRippleAnimation();
                 rippleBackground.setRippleAmount(6);
                 rippleBackground.startRippleAnimation();
-                volState=0;
+                volState = 0;
                 /**  首先判断系统是否处于睡眠模式，处于此模式只有指定指令才能唤醒，避免噪音下的误识别,睡眠模式下要注意在这里就开启语音识别方法，因为无法
                  * 通过完成说话后调用完成说话方法来调用开启语音识别方法*/
                 if (isSleepMode == true) {
@@ -347,6 +375,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                 } else {
                     showTip("识别成功");
                     if (text.contains("open") && text.contains("airCondition")) {
+                        connetSendPacketThread.sendCMD(bOPEN_AIR);
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，打开空调");
                     } else if (text.contains("hello")) {
                         ttsDemo.speakVoice(AsrDemo.this, "愚蠢的地球人，找我有什么事");
@@ -371,6 +400,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                     } else if (text.contains("power")) {
                         ttsDemo.speakVoice(AsrDemo.this, "好吧，地球人，你赢了，说吧，想让我干什么");
                     } else if (text.contains("close") && text.contains("airCondition")) {
+                        connetSendPacketThread.sendCMD(bCLOSE_AIR);
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，关闭空调");
                     } else if (text.contains("close") && text.contains("TV")) {
                         connetSendPacketThread.sendCMD(bTurnTv);
@@ -378,9 +408,25 @@ public class AsrDemo extends Activity implements OnClickListener {
                     } else if (text.contains("open") && text.contains("TV")) {
                         connetSendPacketThread.sendCMD(bTurnTv);
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，打开电视");
+                    } else if (text.contains("playMusic")) {
+                        connetSendPacketThread.sendCMD(bPLAY_MUSIC);
+                        ttsDemo.speakVoice(AsrDemo.this, "好哒");
+                    } else if (text.contains("nextSong")) {
+                        connetSendPacketThread.sendCMD(bNEXT_SONG);
+                        ttsDemo.speakVoice(AsrDemo.this, "好哒,换歌");
+                    } else if (text.contains("preSong")) {
+                        connetSendPacketThread.sendCMD(bPRE_SONG);
+                        ttsDemo.speakVoice(AsrDemo.this, "好哒,上一首");
+                    } else if (text.contains("playVideo")) {
+                        connetSendPacketThread.sendCMD(bPLAY_VIDEO);
+                        ttsDemo.speakVoice(AsrDemo.this, "好哒");
                     } else if (text.contains("open") && text.contains("light")) {
-                        connetSendPacketThread.sendCMD(bopenLight);
-                        ttsDemo.speakVoice(AsrDemo.this, "好哒，现在就开灯");
+                        if (text.contains("hold")) {
+                            ttsDemo.speakVoice(AsrDemo.this, "今天心情不好，不想给你开灯");
+                        } else {
+                            connetSendPacketThread.sendCMD(bopenLight);
+                            ttsDemo.speakVoice(AsrDemo.this, "好哒，现在就开灯");
+                        }
                     } else if (text.contains("vol") && text.contains("volTurnDown")) {
 
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，减小音量");
@@ -389,7 +435,7 @@ public class AsrDemo extends Activity implements OnClickListener {
                         connetSendPacketThread.sendCMD(bVolTurnDown);
                         connetSendPacketThread.sendCMD(bVolTurnDown);
                         connetSendPacketThread.sendCMD(bVolTurnDown);
-                        
+
                     } else if (text.contains("vol") && text.contains("volTurnUp")) {
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，增大音量");
                         connetSendPacketThread.sendCMD(bVolTurnUp);
@@ -406,7 +452,25 @@ public class AsrDemo extends Activity implements OnClickListener {
                     } else if (text.contains("close") && text.contains("light")) {
                         connetSendPacketThread.sendCMD(bcloseLight);
                         ttsDemo.speakVoice(AsrDemo.this, "好哒，正在关灯");
-                    } else {
+                    }
+                    else if (text.contains("avPlayer")) {
+                        ttsDemo.speakVoice(AsrDemo.this, "愚蠢的地球人，苍老师已经很久没有新片了，" +
+                                "根据知乎的数据，现在年产电影量最高的明明是武藤兰老师，一年产量：304部");
+                    }
+                    else if (text.contains("openAV")) {
+                        connetSendPacketThread.sendCMD(bTurnTv);
+                        ttsDemo.speakVoice(AsrDemo.this, "好的，正在打开电视，老司机，请准备上车");
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        connetSendPacketThread.sendCMD(bPLAY_VIDEO);
+
+
+                    }
+
+                    else {
                         ttsDemo.speakVoice(AsrDemo.this, "你说啥");
                     }
 
@@ -437,7 +501,7 @@ public class AsrDemo extends Activity implements OnClickListener {
             Log.d("语音识别错误回调", "错误码：" + error.getErrorCode());
             if (!isFinishing()) {
                 Log.d("onError", "准备启动语音识别1");
-                if (!isBeginRec|error.getErrorCode()==20005) {//此处做此判断的目的在于，当系统已结准备好识别时你不能再次去启动识别方法，否则出错
+                if (!isBeginRec | error.getErrorCode() == 20005) {//此处做此判断的目的在于，当系统已结准备好识别时你不能再次去启动识别方法，否则出错
                     voiceRecognition();
                     Log.d("onError", "准备启动语音识别2");
                 }
@@ -523,7 +587,6 @@ public class AsrDemo extends Activity implements OnClickListener {
         if (connetSendPacketThread.sendHandlerThread != null) {
             connetSendPacketThread.sendHandlerThread.quit();
         }
-
 
 
 //        if (connetSendPacketThread.wifiLock != null) {

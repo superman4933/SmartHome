@@ -28,7 +28,7 @@
     <application
         android:name="com.iflytek.voicedemo.SpeechApp"
         android:icon="@drawable/icon"
-        android:label="智能家居V1.0" >
+        android:label="超人之家V1.0" >
         <activity
             android:name="com.iflytek.voicedemo.AsrDemo"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"

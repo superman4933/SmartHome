@@ -4,7 +4,7 @@
     api-level="19"
     density="xhdpi"
     format="7"
-    timestamp="27198524548729" >
+    timestamp="11493782228383" >
 
     <task
         name="javac"
@@ -23,7 +23,7 @@
         location="D:\AndroidProject\SmartHomeSystem\speechDemo\build\outputs\apk\speechDemo-debug.apk"
         type="MAIN" />
 
-    <build timestamp="27198524548729" >
+    <build timestamp="11493782228383" >
         <artifact
             location="D:\AndroidProject\SmartHomeSystem\speechDemo\build\outputs\apk\speechDemo-debug.apk"
             type="MAIN" />

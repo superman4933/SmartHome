@@ -4,12 +4,12 @@
         "source": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\layout\\my_toast.xml"
     },
     {
-        "merged": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\isrdemo1.xml",
-        "source": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\layout\\isrdemo1.xml"
-    },
-    {
         "merged": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\isrdemo.xml",
         "source": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\layout\\isrdemo.xml"
+    },
+    {
+        "merged": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\isrdemo1.xml",
+        "source": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\src\\main\\res\\layout\\isrdemo1.xml"
     },
     {
         "merged": "D:\\AndroidProject\\SmartHomeSystem\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\ttsdemo.xml",
